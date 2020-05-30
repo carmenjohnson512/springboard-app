@@ -15,9 +15,9 @@
 
 ## Scope
 
-- **Springboard** is an app that helps travelers "fill in the blanks" of their planned vacation. 
+- **Springboard** is an app that helps travelers "fill in the blanks" of their planned vacation.
 
-- This app will feature different ways to make the most out of many domestic trips with weather forecasts, events in the area, and local restaurant reviews. 
+- This app will feature different ways to make the most out of many domestic trips with weather forecasts, events in the area, and local restaurant reviews.
 
 ## Flow
 
@@ -26,21 +26,23 @@
 ## Technologies Used
 
 1. Languages and Frameworks
- - HTML5/CSS3
- - Javascript/JQuery
- - AJAX
- - Bulma
- - Moment.js 
+
+- HTML5/CSS3
+- Javascript/JQuery
+- AJAX
+- Bulma
+- Moment.js
 
 2. APIs
- - AccuWeather
- - Yelp
- - Eventbrite or Ticketmaster
+
+- AccuWeather
+- Yelp
+- Eventbrite or Ticketmaster
 
 ## User Story
 
-- As a traveler, I want to be able to look up local activities in a new city, so that I can plan my vacations more smoothly. 
-- Given that I am a traveler looking for local activities in a new city, WHEN I input my location, THEN I am presented with a list of local restaraunts and local     activites accompanied with reviews. 
+- As a traveler, I want to be able to look up local activities in a new city, so that I can plan my vacations more smoothly.
+- Given that I am a traveler looking for local activities in a new city, WHEN I input my location, THEN I am presented with a list of local restaraunts and local activites accompanied with reviews.
 
 ## Wireframe
 
@@ -57,9 +59,11 @@
 
 1. Uber Ride Requests and UberEats straight from the App
 2. App will operate on an international scale.
- - Includes foreign exchange rates. 
-3. Dark Mode 
+
+- Includes foreign exchange rates.
+
+3. Dark Mode
 
 ## Preview
 
-- Coming Soon
+- Coming Very Soon
