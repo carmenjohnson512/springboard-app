@@ -7,7 +7,7 @@ $(document).ready(function (){
         177, 211, 190, 179, 150, 95, 93, 761, 142, 451, 264, 308, 641, 99, 965];
 
     //cuisine options variable that stores cuisine option values by cuisine_id and cuisine_name
-    let cuisineOptionsObject = 
+    let cuisineOptions = 
         {cuisines: 
             [
                 {
@@ -840,23 +840,49 @@ $(document).ready(function (){
                 }
             ]
         };
-    let queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=1%2C151%2C3%2C193&sort=rating&order=desc";
     const APIKey = "cd932dfc82bc08b58c79cefff1fc925a";
 
-    $.ajax({
-        dataType: "json",
-        url: queryURL,
-        method: "GET",
-        crossDomain: true,
-        async: true,
-        headers: {
-            "user-key": APIKey
-        }
-        }).then(function(data) {
-        console.log(data)
-        });
-        // .catch(err) {
-        //     console.log(err)
-        // }
+
+    $("#searchBtn").on("click", function(){
+        let searchInput = $('#search-bar').val();
+        let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
+
+        console.log("this is what we typed", searchInput)
+        $.ajax({
+            dataType: "json",
+            url: citiesURL,
+            method: "GET",
+            crossDomain: true,
+            async: true,
+            headers: {
+                "user-key": APIKey
+            }
+            }).then(function(data) {
+                let cityID = data.location_suggestions[0].id;
+
+                console.log('city id stufff!! from api!!! ', data.location_suggestions[0].id)
+            restaurantRecs (cityID);
+            });
+    })
+    
+
+    function restaurantRecs (cityId) {
+        let queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=83&sort=rating&order=desc";
+
+        $.ajax({
+
+            dataType: "json",
+            url: queryURL,
+            method: "GET",
+            crossDomain: true,
+            async: true,
+            headers: {
+                "user-key": APIKey
+            }
+            }).then(function(data) {
+                console.log('recommendation data!!!!', data)
+            });
+    }
+    
 
 });
