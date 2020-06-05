@@ -6,6 +6,7 @@ $(document).ready(function (){
         162, 82, 970, 219, 87, 983, 361, 320, 84, 998, 601, 304, 691, 210, 83, 128, 119, 611, 461, 267, 972, 471, 966, 89, 86, 141,
         177, 211, 190, 179, 150, 95, 93, 761, 142, 451, 264, 308, 641, 99, 965];
 
+    //cuisine options variable that stores cuisine option values by cuisine_id and cuisine_name
     let cuisineOptionsObject = 
         {cuisines: 
             [
