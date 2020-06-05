@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Springboard App</title>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"></script>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <section class="section">
+      <h1 class="title">Springboard</h1>
+      <div class="container">
+        <h1 class="city">City Name</h1>
+        <!-- Use geolocation in .js to grab users current location-->
+
+        <div class="sidebar light-grey bar-block" style="width: 30%;">
+          <h3 class="bar-item">Previous Searches</h3>
+          <!-- These would have to be prepended. Recent searches will be on top-->
+          <a href="#" class="search" id="food1">Restaurant 1</a>
+          <a href="#" class="search" id="food2">Restaurant 2</a>
+          <a href="#" class="search" id="food3">Restaurant 3</a>
+        </div>
+
+        <!---------Here is the container where the restaurants will display------->
+        <section class="food_container">
+          <p>Restaurant 1</p>
+          <p>Restaurant 2</p>
+          <p>Restaurant 3</p>
+          <p>Restaurant 4</p>
+          <p>Restaurant 5</p>
+        </section>
+
+        <div class="events_container">
+          <h2>Events</h2>
+          <img
+            src="./assets/events_homepage.jpg"
+            alt="Events homepage"
+            class="hp_event"
+            style="width: 300px; height: 250px;"
+          />
+        </div>
+
+        <div class="weather_container">
+          <h2>Weather</h2>
+          <img
+            src="./assets/weather_homepage.jpeg"
+            alt="Weather homepage"
+            class="hp_weather"
+            style="width: 300px; height: 250px;"
+          />
+        </div>
+      </div>
+    </section>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"
+  ></script>
+  <script src="./assets/springboard.js"></script>
+</html>
