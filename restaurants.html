@@ -9,21 +9,23 @@
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"></script>
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/foodstyle.css" />
   </head>
   <body>
     <section class="section">
       <h1 class="title">Springboard</h1>
+      <!-- Moved city out of main container for positionning-->
+      <!-- Use geolocation in .js to grab users current location-->
+      <h1 class="city">City Name</h1>
+      
       <div class="container">
-        <h1 class="city">City Name</h1>
-        <!-- Use geolocation in .js to grab users current location-->
-
+        
         <div class="sidebar light-grey bar-block" style="width: 30%;">
           <h3 class="bar-item">Previous Searches</h3>
           <!-- These would have to be prepended. Recent searches will be on top-->
-          <a href="#" class="search" id="food1">Restaurant 1</a>
-          <a href="#" class="search" id="food2">Restaurant 2</a>
-          <a href="#" class="search" id="food3">Restaurant 3</a>
+          <a href="#" class="search" id="food1">Restaurant 1<br></a>
+          <a href="#" class="search" id="food2">Restaurant 2<br></a>
+          <a href="#" class="search" id="food3">Restaurant 3<br></a>
         </div>
 
         <!---------Here is the container where the restaurants will display------->
@@ -35,6 +37,11 @@
           <p>Restaurant 5</p>
         </section>
 
+        
+
+      </div>
+      <!--Created a container for the Nav items like event images and homepage images// they are set horizontally at the bottom of the page-->
+      <div class="nav-container">
         <div class="events_container">
           <h2>Events</h2>
           <img
@@ -44,7 +51,7 @@
             style="width: 300px; height: 250px;"
           />
         </div>
-
+  
         <div class="weather_container">
           <h2>Weather</h2>
           <img
@@ -54,7 +61,10 @@
             style="width: 300px; height: 250px;"
           />
         </div>
+
       </div>
+
+      
     </section>
   </body>
   <script
