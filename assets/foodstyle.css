@@ -1,0 +1,41 @@
+.title{
+    align-items: center;
+    text-align: center;
+    
+    
+}
+
+.city{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    padding-top: 10px;
+ 
+
+}
+
+.container{
+    display: flex;
+}
+
+.sidebar{
+    display: block;
+    align-items: flex-start;
+    border-style: solid;
+    border-color: black;
+  
+}
+.food_container{
+    width: 80%;
+    display: flex;
+    align-items: start;
+    justify-content: space-evenly;
+}
+
+
+.nav-container{
+    display: flex;
+    justify-content: space-around;
+
+
+}
