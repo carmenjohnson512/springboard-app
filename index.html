@@ -14,8 +14,9 @@
     <div class="block">
       <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
-              <a class="navbar-item" href="#">
-                 <h1 class="title is-4"><strong>Springboard</strong></h1>
+             <a class="navbar-item" href="index.html">
+                 <h1 class="title is-4"><strong>Springboard.</strong></h1>
+
               </a>
           
               <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -27,25 +28,25 @@
 
           <div id="navbarBasicExample" class="navbar-menu">
               <div class="navbar-end">
-              <a class="navbar-item" href="./index.html">
+              <a class="navbar-item" href="index.html">
                   <span class="icon">
                       <!--Each Icon will navigate the user to the corresponding page-->
                       <i class="fas fa-home"></i> 
                   </span>
               </a>
-              <a class="navbar-item" href="./restaurants.html">
+              <a class="navbar-item" href="restaurants.html">
                   <span class="icon">
                       <!--Each Icon will navigate the user to the corresponding page-->
                       <i class="fas fa-utensils"></i>
                   </span>
               </a>
-              <a class="navbar-item" href="./events.html">
+              <a class="navbar-item" href="events.html">
                   <span class="icon">
                       <!--Each Icon will navigate the user to the corresponding page-->
                       <i class="fas fa-city"></i>
                   </span>
-              </a>
-              <a class="navbar-item" href="./weather.html">
+                </a>
+              <a class="navbar-item" href="weather.html">
                   <span class="icon">
                       <!--Each Icon will navigate the user to the corresponding page-->
                       <i class="fas fa-cloud"></i>
@@ -56,9 +57,14 @@
   </div>
     <!-----------  Webpage body content --------->
         <section class="section">
+            <p>What city are you exploring?</p>
+            <input id="search-bar"></input>
+            <button id="searchBtn">Search</button>
+
             <h1 class="title">Springboard</h1>
+            <!--moved city class out of the image container-->
+            <h1 class="city">City Name</h1>  <!-- Use geolocation in .js to grab users current location-->
             <div class="container">
-                <h1 class="city">City Name</h1>  <!-- Use geolocation in .js to grab users current location-->
                 <div class="restaurant_container">
                     <h2>Restaurants</h2> 
                     <img 
@@ -91,5 +97,5 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous"
   ></script>
-  <script src="./assets/springboard.js"></script>   
+  <script src="./assets/springboard.js"></script>
 </html>

@@ -857,5 +857,96 @@ $(document).ready(function (){
         // .catch(err) {
         //     console.log(err)
         // }
+$("#searchBtn").on("click", function () {
+    let searchInput = $("#search-bar").val();
+    let citiesURL =
+      "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
 
+    console.log("this is what we typed", searchInput);
+    $.ajax({
+      dataType: "json",
+      url: citiesURL,
+      method: "GET",
+      crossDomain: true,
+      async: true,
+      headers: {
+        "user-key": APIKey,
+      },
+    }).then(function (data) {
+      let cityID = data.location_suggestions[0].id;
+
+      console.log(
+        "city id stufff!! from api!!! ",
+        data.location_suggestions[0].id
+      );
+      restaurantRecs(cityID);
+    });
+  });
+  function restaurantRecs(cityId) {
+    let queryURL =
+      "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=83&sort=rating&order=desc";
+
+    $.ajax({
+      dataType: "json",
+      url: queryURL,
+      method: "GET",
+      crossDomain: true,
+      async: true,
+      headers: {
+        "user-key": APIKey,
+      },
+    }).then(function (data) {
+      console.log("recommendation data!!!!", data);
+    });
+  }
+
+  $.ajax({
+    type: "GET",
+    url:
+      "https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A",
+    async: true,
+    dataType: "json",
+    success: function (json) {
+      console.log(json);
+      // Parse the response.
+      // Do other things.
+    },
+    error: function (xhr, status, err) {
+      // This time, we do not end up here!
+    },
+  });
 });
+
+  function restaurantRecs(cityId) {
+    let queryURL =
+      "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=83&sort=rating&order=desc";
+
+    $.ajax({
+      dataType: "json",
+      url: queryURL,
+      method: "GET",
+      crossDomain: true,
+      async: true,
+      headers: {
+        "user-key": APIKey,
+      },
+    }).then(function (data) {
+      console.log("recommendation data!!!!", data);
+    });
+  }
+
+  $.ajax({
+    type: "GET",
+    url:
+      "https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A",
+    async: true,
+    dataType: "json",
+    success: function (json) {
+      console.log(json);
+      // Parse the response.
+      // Do other things.
+    },
+    error: function (xhr, status, err) {
+      // This time, we do not end up here!
+    },
+  });
