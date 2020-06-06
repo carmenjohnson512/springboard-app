@@ -10,7 +10,7 @@
     ></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/db5e26bbb4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/foodstyle.css" />
   </head>
   <body>
      <!--Navigation Bar-->
@@ -58,44 +58,70 @@
       </nav>
   </div>
   <!-----------  Webpage body content --------->
-    <script src="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css"></script>
-    <link rel="stylesheet" href="./assets/foodstyle.css" />
-  </head>
-  <body>
     <section class="section">
+      <p>What city are you exploring?</p>
+            <input id="search-bar"></input>
+            <button id="searchBtn">Search</button>
+
+  <!----   Sidebar menu with searched restaurants  -->
+      <div class="block"> <!--- Samir put this the side next to restaurants (AO)-->
+        <aside class="menu is-two-thirds">
+          <p class="menu-label">
+            Restaurant 1
+          </p>
+          <ul class="menu-list">
+            <li><a href="">Link 1</a></li>
+          </ul>
+          <p class="menu-label">
+            Restraurant 2
+          </p>
+          <ul class="menu-list">
+            <li><a href="">Link 2</a></li>
+          </ul>
+          <p class="menu-label">
+            Restraurant 3
+          </p>
+          <ul class="menu-list">
+            <li><a href="">Link 3</a></li>
+          </ul>
+        </aside>
+      </div>
+
       <h1 class="title">Springboard</h1>
-      <!-- Moved city out of main container for positionning-->
       <!-- Use geolocation in .js to grab users current location-->
       <h1 class="city">City Name</h1>
-      
-      <div class="container">
-        
-        <div class="sidebar light-grey bar-block" style="width: 30%;">
-          <h3 class="bar-item">Previous Searches</h3>
-          <!-- These would have to be prepended. Recent searches will be on top-->
-          <a href="#" class="search" id="food1">Restaurant 1<br></a>
-          <a href="#" class="search" id="food2">Restaurant 2<br></a>
-          <a href="#" class="search" id="food3">Restaurant 3<br></a>
-        </div>
 
-        <!---------Here is the container where the restaurants will display------->
+        <!----Here is the container where the restaurants will display------->
         <section class="food_container">
-          <p>Restaurant 1</p>
-          <p>Restaurant 2</p>
-          <p>Restaurant 3</p>
-          <p>Restaurant 4</p>
-          <p>Restaurant 5</p>
-          <p>Restaurant 6</p>
-          <p>Restaurant 7</p>
+          <div class="block">
+            <div class="box">
+              <h1 class="title">Restaurant 1</h1>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="box">
+              <h1 class="title">Restaurant 2</h1>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="box">
+              <h1 class="title">Restaurant 3</h1>
+            </div>
+          </div>
+
+          <div class="block">
+            <div class="box">
+              <h1 class="title">Restaurant 4</h1>
+            </div>
+          </div>
         </section>
 
-      </div>
       <!--Created a container for the Nav items like event images and homepage images// they are set horizontally at the bottom of the page-->
       <div class="nav-container">
         <div class="homepage_container">
         </section>
-
-        
 
       </div>
       <!--Created a container for the Nav items like event images and homepage images// they are set horizontally at the bottom of the page-->
@@ -119,7 +145,7 @@
             style="width: 300px; height: 250px;"
           />
         </div>
-        <h2>Homepage</h2>
+        <h2>Homepage</h2> <!--Samir I added the homepage it just needs CSS applied to it.(AO)-->
           <img
             src="./assets/homepage_card.jpg"
             alt="App homepage"
@@ -133,6 +159,18 @@
       </div>
       
     </section>
+
+    <!---------   Footer    -------->
+    <footer class="footer">
+      <div class="content has-text-centered">
+          <p>
+              <strong>Springboard</strong> by Alba Osmanaj, Carmen Johnson, Mark McDonald, Samir Abello, & Ty D'Angelo. 
+          </p>
+      </div>
+  </footer>
+</body>
+
+<!--Javascript/JQuery Link-->
   </body>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
