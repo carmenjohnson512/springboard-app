@@ -65,11 +65,23 @@
           <p>What city are you exploring?</p>        
             <input id="search-bar"></input>
             <button id="searchBtn">Search</button>
-
         </div>
-      
-            <h1 class="city-Name">City Name</h1>
-
+        <h1 class="city" id="cityTitle">City Name</h1>
+      </div>
+      <div class="dropdown is-active">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span>What would you like to eat?</span>
+            <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+            <a href="#" class="dropdown-item is-active"></a>
+          </div>
+        </div>
       </div>
       
 
