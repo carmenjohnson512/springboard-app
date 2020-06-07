@@ -855,14 +855,11 @@ $(document).ready(function () {
   }).then(function (data) {
     console.log(data)
   });
-  // .catch(err) {
-  //     console.log(err)
-  // }
+ 
+  //function to take city name input and populate city name & city-based restaurant and event recommendations 
   $("#searchBtn").on("click", function () {
     let searchInput = $("#search-bar").val();
-    let citiesURL =
-      "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
-
+    let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
     console.log("this is what we typed", searchInput);
     $.ajax({
       dataType: "json",
@@ -875,14 +872,16 @@ $(document).ready(function () {
       },
     }).then(function (data) {
       let cityID = data.location_suggestions[0].id;
-
-      console.log(
-        "city id stufff!! from api!!! ",
-        data.location_suggestions[0].id
-      );
+      let cityName = data.location_suggestions[0].name;
+      console.log("city id stufff!! from api!!! ", cityID);
+      $("#cityTitle").text("Welcome to " + cityName);
+      console.log("is city name working?", cityName)
+      
       restaurantRecs(cityID);
     });
   });
+
+  //function to populate restaurant recommendations by cityID
   function restaurantRecs(cityId) {
     let queryURL =
       "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=83&sort=rating&order=desc";
