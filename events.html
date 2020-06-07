@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Springboard - Events</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/db5e26bbb4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assetsgit /eventstyle.css">
+
+    <!--Samir, feel free to change this path. I know you planned to use different CSS filed for each HTML!-->
+</head>
+<body>
+        <!--Navigation Bar-->
+        <div class="block" id="navbarBlock">
+            <nav class="navbar is-danger" role="navigation" aria-label="main navigation" id="navbar">
+                <div class="navbar-brand">
+                    <a class="navbar-item" id="navbarLogo" href="index.html">
+                        <h1 class="title is-4" id="springLogo"><strong>Springboard.</strong></h1>
+                    </a>
+        
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" id="logoBtn">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+        
+                <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="index.html" id="homeBtn">
+                            <span class="icon">
+                                <!--Each Icon will navigate the user to the corresponding page-->
+                                <i class="fas fa-home"></i>
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="restaurants.html" id="eatBtn">
+                            <span class="icon">
+                                <!--Each Icon will navigate the user to the corresponding page-->
+                                <i class="fas fa-utensils"></i>
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="events.html" id="eventBtn">
+                            <span class="icon">
+                                <!--Each Icon will navigate the user to the corresponding page-->
+                                <i class="fas fa-city"></i>
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="weather.html" id="weatherBtn">
+                            <span class="icon">
+                                <!--Each Icon will navigate the user to the corresponding page-->
+                                <i class="fas fa-cloud"></i>
+                            </span>
+                        </a>
+                    </div>
+            </nav>
+        </div>
+
+        <section class="section">
+            <p id="userPrompt">What city are you exploring?</p>
+            <input id="search-bar"></input>
+            <button id="searchBtn">Search</button>
+
+            <h1 class="title" id="eventTitle">Events</h1>
+            <!-- Use geolocation in .js to grab users current location-->
+            <h1 class="city" id="cityTitle">City Name</h1>
+        </section>
+
+       
+        <div class="event-container is-vcentered" id="eventContainer">
+            <div class="block">
+                <div class="columns">
+
+                    <!--Events Cards-->
+                    <!--Samir, could you apply some margin-left or padding to these cards to center them?-->
+                    <div class="column is-three-quarters">
+            
+                        <div class="card" id="previewOne">
+                            <div class="card-content">
+                                <p class="title">
+                                    <!--This will be changed with DOM Manipulation-->
+                                    Wine Tasting
+                                </p>
+                            </div>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">
+                                    <span>
+                                        <a href="">View Details</a>
+                                    </span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="columns">
+    
+                    <!--Events Cards-->
+                    <!--Samir, could you apply some margin-left or padding to these cards to cetner them?-->
+                    <div class="column is-three-quarters is-vcentered">
+                
+                        <div class="card" id="previewTwo">
+                            <div class="card-content">
+                                <p class="title">
+                                    <!--This will be changed with DOM Manipulation-->
+                                    Dua Lipa Concert
+                                </p>
+                            </div>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">
+                                    <span>
+                                        <a href="">View Details</a>
+                                    </span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="columns">
+    
+                    <!--Events Cards-->
+                    <!--Samir, could you apply some margin-left or padding to these cards to cetner them?-->
+                    <div class="column is-three-quarters">
+                
+                        <div class="card" id="previewThree">
+                            <div class="card-content">
+                                <p class="title">
+                                    <!--This will be changed with DOM Manipulation-->
+                                    Tech Start-Up Convention
+                                </p>
+                            </div>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">
+                                    <span>
+                                        <a href="">View Details</a>
+                                    </span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="columns">
+    
+                    <!--Events Cards-->
+                    <!--Samir, could you apply some margin-left or padding to these cards to cetner them?-->
+                    <div class="column is-three-quarters">
+                
+                        <div class="card" id="previewFour">
+                            <div class="card-content">
+                                <p class="title">
+                                    <!--This will be changed with DOM Manipulation-->
+                                    Comic-Con
+                                </p>
+                            </div>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">
+                                    <span>
+                                        <a href="">View Details</a>
+                                    </span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="columns">
+    
+                    <!--Events Cards-->
+                    <!--Samir, could you apply some margin-left or padding to these cards to cetner them?-->
+                    <div class="column is-three-quarters">
+                
+                        <div class="card" id="previewFive">
+                            <div class="card-content">
+                                <p class="title">
+                                    <!--This will be changed with DOM Manipulation-->
+                                    Watch Paint Dry
+                                </p>
+                            </div>
+                            <footer class="card-footer">
+                                <p class="card-footer-item">
+                                    <span>
+                                        <a href="">View Details</a>
+                                    </span>
+                                </p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+       
+
+    <footer class="footer">
+        <div class="content has-text-centered" id="footer">
+            <p>
+                <strong>Springboard</strong> by Alba Osmanaj, Carmen Johnson, Mark McDonald, Samir Abello, & Ty D'Angelo. 
+            </p>
+        </div>
+    </footer>
+        
+</body>
+
+<!--Javascript/JQuery Link-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="./assets/springboard.js"></script>
+</html>
