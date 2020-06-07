@@ -10,71 +10,70 @@
         <link rel="stylesheet" href="./assets/style.css">
     </head>
     <body>
-         <!--Navigation Bar-->
-    <div class="block">
-      <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
-          <div class="navbar-brand">
-             <a class="navbar-item" href="index.html">
-                 <h1 class="title is-4"><strong>Springboard.</strong></h1>
-
-              </a>
-          
-              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                  <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
-              </a>
-          </div>
-
-          <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-end">
-              <a class="navbar-item" href="index.html">
-                  <span class="icon">
-                      <!--Each Icon will navigate the user to the corresponding page-->
-                      <i class="fas fa-home"></i> 
-                  </span>
-              </a>
-              <a class="navbar-item" href="restaurants.html">
-                  <span class="icon">
-                      <!--Each Icon will navigate the user to the corresponding page-->
-                      <i class="fas fa-utensils"></i>
-                  </span>
-              </a>
-              <a class="navbar-item" href="events.html">
-                  <span class="icon">
-                      <!--Each Icon will navigate the user to the corresponding page-->
-                      <i class="fas fa-city"></i>
-                  </span>
-                </a>
-              <a class="navbar-item" href="weather.html">
-                  <span class="icon">
-                      <!--Each Icon will navigate the user to the corresponding page-->
-                      <i class="fas fa-cloud"></i>
-                  </span>
-              </a>
-          </div>
-      </nav>
-  </div>
+        <!--Navigation Bar-->
+        <div class="block" id="navbarBlock">
+            <nav class="navbar is-danger" role="navigation" aria-label="main navigation" id="navbar">
+                <div class="navbar-brand">
+                    <a class="navbar-item" id="navbarLogo" href="index.html">
+                        <h1 class="title is-4" id="springLogo"><strong>Springboard.</strong></h1>
+                    </a>
+        
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" id="logoBtn">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+        
+                <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="index.html" id="homeBtn">
+                            <span class="icon">
+                                <!--Each Icon will navigate the user to the corresponding page-->
+                                <i class="fas fa-home"></i>
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="restaurants.html" id="eatBtn">
+                            <span class="icon">
+                                <!--Each Icon will navigate the user to the corresponding page-->
+                                <i class="fas fa-utensils"></i>
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="events.html" id="eventBtn">
+                            <span class="icon">
+                                <!--Each Icon will navigate the user to the corresponding page-->
+                                <i class="fas fa-city"></i>
+                            </span>
+                        </a>
+                        <a class="navbar-item" href="weather.html" id="weatherBtn">
+                            <span class="icon">
+                                <!--Each Icon will navigate the user to the corresponding page-->
+                                <i class="fas fa-cloud"></i>
+                            </span>
+                        </a>
+                    </div>
+            </nav>
+        </div>
     <!-----------  Webpage body content --------->
         <section class="section">
-            <p>What city are you exploring?</p>
+            <p id="userPrompt">What city are you exploring?</p>
             <input id="search-bar"></input>
             <button id="searchBtn">Search</button>
 
-            <h1 class="title">Springboard</h1>
+            <h1 class="title" id="homeTitle">Springboard</h1>
             <!--moved city class out of the image container-->
-            <h1 class="city">City Name</h1>  <!-- Use geolocation in .js to grab users current location-->
+            <h1 class="city" id="cityTitle">City Name</h1>  <!-- Use geolocation in .js to grab users current location-->
             <div class="container">
-                <div class="restaurant_container">
-                    <h2>Restaurants</h2> 
+                <div class="restaurant_container" id="optionOne">
+                    <h2 id="optionOneTitle">Restaurants</h2> 
                     <img 
                     src="./assets/restaurant_homepage.jpeg" alt="Restaurants homepage" 
                     class="hp_restaurant" 
                     style="width: 300px; height: 250px;">  
                 </div>
 
-                <div class="events_container">
-                    <h2>Events</h2> 
+                <div class="events_container" id="optionTwo">
+                    <h2 id="optionTwoTitle">Events</h2> 
                     <img 
                     src="./assets/events_homepage.jpg" 
                     alt="Events homepage" 
@@ -82,8 +81,8 @@
                     style="width: 300px; height: 250px;">  
                 </div>
 
-                <div class="weather_container">
-                    <h2>Weather</h2> 
+                <div class="weather_container" id="optionThree">
+                    <h2 id="optionThreeTitle">Weather</h2> 
                     <img 
                     src="./assets/weather_homepage.jpeg" 
                     alt="Weather homepage" 
@@ -94,7 +93,7 @@
 
     <!---------   Footer    -------->
     <footer class="footer">
-        <div class="content has-text-centered">
+        <div class="content has-text-centered" id="footer">
             <p>
                 <strong>Springboard</strong> by Alba Osmanaj, Carmen Johnson, Mark McDonald, Samir Abello, & Ty D'Angelo. 
             </p>
