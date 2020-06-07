@@ -843,19 +843,20 @@ $(document).ready(function () {
   
   let queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=1%2C151%2C3%2C193&sort=rating&order=desc";
   const APIKey = "cd932dfc82bc08b58c79cefff1fc925a";
+  const APIKey2 = "1092a507c481907491fcd43ea457fbd9";
 
-  $.ajax({
-    dataType: "json",
-    url: queryURL,
-    method: "GET",
-    crossDomain: true,
-    async: true,
-    headers: {
-      "user-key": APIKey
-    }
-  }).then(function (data) {
-    console.log(data)
-  });
+//   $.ajax({
+//     dataType: "json",
+//     url: queryURL,
+//     method: "GET",
+//     crossDomain: true,
+//     async: true,
+//     headers: {
+//       "user-key": APIKey
+//     }
+//   }).then(function (data) {
+//     console.log(data)
+//   });
  
   //function to take city name input and populate city name & city-based restaurant and event recommendations 
   $("#searchBtn").on("click", function currentCity () {
@@ -869,7 +870,7 @@ $(document).ready(function () {
       crossDomain: true,
       async: true,
       headers: {
-        "user-key": APIKey,
+        "user-key": APIKey2,
       },
     }).then(function (data) {
       let cityID = data.location_suggestions[0].id;
@@ -881,16 +882,20 @@ $(document).ready(function () {
       restaurantRecs(cityID);
     });
   });
+
+  //function to populate cuisine dropdown
+  for (let i = 0; i < cuisineOptions.cuisines.length; i++) {
+    console.log("looping?")
+    let cuisineName = cuisineOptions.cuisines[i].cuisine.cuisine_name;
+    let dropdownItem = $("<div>").addClass("dropdown-item");
+    dropdownItem.text(cuisineName);
+    $(".dropdown-content").append(dropdownItem);
+    console.log("appending cuisines?")
+  };
   
   //function to populate restaurant recommendations by cityID
   function restaurantRecs(cityId) {
     for (let i = 0; i < cuisineOptions.cuisines.length; i++) {
-        console.log("looping?")
-        let cuisineName = cuisineOptions.cuisines[i].cuisine.cuisine_name;
-        let dropdownItem = $(".dropdown-item").text(cuisineName);
-        $(".dropdown-content").append(dropdownItem);
-        console.log("appending cuisines?")
-    
    
         let cuisineID = cuisineOptions.cuisines[i].cuisine.cuisine_id;
         console.log("cuisineID?")
@@ -904,7 +909,7 @@ $(document).ready(function () {
         crossDomain: true,
         async: true,
         headers: {
-            "user-key": APIKey,
+            "user-key": APIKey2,
         },
         }).then(function (data) {
             console.log("recommendation data!!!!", data);
