@@ -16,7 +16,7 @@
       src="https://kit.fontawesome.com/db5e26bbb4.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/weatherstyle.css" />
   </head>
   <body>
 
@@ -69,18 +69,16 @@
         <p>What city are you exploring?</p>
         <input id="search-bar"></input>
         <button id="searchBtn">Search</button>
+        <h1 class="title is-2 is-centered">City Name</h1> <!-- Use geolocation in .js to grab users current location-->
     </section>
 
-    <section>
-        <h1 class="title is-2">City Name</h1> <!-- Use geolocation in .js to grab users current location-->
-        <div class="container">
-    </section>
+    
     
 
     <section>
-        <div class="container">
+        <div class="container is-centered">
             <!--Forecast Box (Current Day)-->
-            <div class="block">
+            <div class="block-curr is-centered">
                 <div class="box">
                     <!--Will change with DOM Manipulation-->
                     <h1 class="title is-4">Day 1</h1>
