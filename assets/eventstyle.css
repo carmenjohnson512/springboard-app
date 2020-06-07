@@ -33,12 +33,13 @@
 
 .card{
     display: flex;
-    width: 250px;
+    width: 225px;
     height: 200px;
     text-align: center;
     border-style: solid;
     align-content: flex-end;
     flex-wrap: wrap;
+    
     
     
 }

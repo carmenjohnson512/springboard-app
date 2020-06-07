@@ -1,0 +1,11 @@
+.section .title{
+    text-align: center;
+    margin-top: -35px;
+
+}
+
+.container{
+    align-self: center;
+    max-width: fit-content;
+    justify-self: center;
+}

@@ -59,73 +59,103 @@
   </div>
   <!-----------  Webpage body content --------->
     <section class="section">
-      <p>What city are you exploring?</p>
+      <div class="title">Springboard</div>
+      <div class="city">
+        <div class="search">
+          <p>What city are you exploring?</p>        
             <input id="search-bar"></input>
             <button id="searchBtn">Search</button>
 
-  <!----   Sidebar menu with searched restaurants  -->
-      <div class="block"> <!--- Samir put this the side next to restaurants (AO)-->
-        <aside class="menu is-two-thirds">
-          <p class="menu-label">
-            Restaurant 1
-          </p>
-          <ul class="menu-list">
-            <li><a href="">Link 1</a></li>
-          </ul>
-          <p class="menu-label">
-            Restraurant 2
-          </p>
-          <ul class="menu-list">
-            <li><a href="">Link 2</a></li>
-          </ul>
-          <p class="menu-label">
-            Restraurant 3
-          </p>
-          <ul class="menu-list">
-            <li><a href="">Link 3</a></li>
-          </ul>
-        </aside>
+        </div>
+      
+            <h1 class="city-Name">City Name</h1>
+
       </div>
+      
 
-      <h1 class="title">Springboard</h1>
-      <!-- Use geolocation in .js to grab users current location-->
-      <h1 class="city">City Name</h1>
+            
 
-        <!----Here is the container where the restaurants will display------->
+            
+            <!-- Use geolocation in .js to grab users current location-->
+            
+
+
+      <!--Moved sidebar menu and all the restaurants cards into one div to arrange it on the same line--> 
+      <div class ="mid-page">
+        <!----   Sidebar menu with searched restaurants  -->
+        <div class="block-side"> <!--- Samir put this the side next to restaurants (AO)-->
+          <aside class="menu is-two-thirds">
+            <p class="menu-label">
+              Restaurant 1
+            </p>
+            <ul class="menu-list">
+              <li><a href="">Link 1</a></li>
+            </ul>
+            <p class="menu-label">
+              Restraurant 2
+            </p>
+            <ul class="menu-list">
+              <li><a href="">Link 2</a></li>
+            </ul>
+            <p class="menu-label">
+              Restraurant 3
+            </p>
+            <ul class="menu-list">
+              <li><a href="">Link 3</a></li>
+            </ul>
+          </aside>
+        </div>
+  
+        
+        
+          <!----Here is the container where the restaurants will display------->
         <section class="food_container">
-          <div class="block">
-            <div class="box">
-              <h1 class="title">Restaurant 1</h1>
+            <div class="block">
+              <div class="box">
+                <h1 class="title">Restaurant 1</h1>
+              </div>
             </div>
-          </div>
-
-          <div class="block">
-            <div class="box">
-              <h1 class="title">Restaurant 2</h1>
+  
+            <div class="block">
+              <div class="box">
+                <h1 class="title">Restaurant 2</h1>
+              </div>
             </div>
-          </div>
-
-          <div class="block">
-            <div class="box">
-              <h1 class="title">Restaurant 3</h1>
+  
+            <div class="block">
+              <div class="box">
+                <h1 class="title">Restaurant 3</h1>
+              </div>
             </div>
-          </div>
-
-          <div class="block">
-            <div class="box">
-              <h1 class="title">Restaurant 4</h1>
+  
+            <div class="block">
+              <div class="box">
+                <h1 class="title">Restaurant 4</h1>
+              </div>
             </div>
-          </div>
         </section>
 
+      </div>
+      
+
+      
+
+          
+       
+
+      </div>
       <!--Created a container for the Nav items like event images and homepage images// they are set horizontally at the bottom of the page-->
       <div class="nav-container">
         <div class="homepage_container">
-        </section>
-
-      </div>
-      <!--Created a container for the Nav items like event images and homepage images// they are set horizontally at the bottom of the page-->
-      <div class="nav-container">
+          <h2>Homepage</h2> <!--Samir I added the homepage it just needs CSS applied to it.(AO)-->
+          <img
+            src="./assets/homepage_card.jpg"
+            alt="App homepage"
+            class="hp_main"
+            style="width: 300px; height: 250px;"
+            />
+        
+        </div>
         <div class="events_container">
           <h2>Events</h2>
           <img
@@ -142,14 +172,6 @@
             src="./assets/weather_homepage.jpeg"
             alt="Weather homepage"
             class="hp_weather"
-            style="width: 300px; height: 250px;"
-          />
-        </div>
-        <h2>Homepage</h2> <!--Samir I added the homepage it just needs CSS applied to it.(AO)-->
-          <img
-            src="./assets/homepage_card.jpg"
-            alt="App homepage"
-            class="hp_main"
             style="width: 300px; height: 250px;"
           />
         </div>
