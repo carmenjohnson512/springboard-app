@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Springboard App</title>
+    <title>Springboard - Restaurants</title>
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
@@ -14,41 +14,41 @@
   </head>
   <body>
      <!--Navigation Bar-->
-    <div class="block">
-      <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
+    <div class="block" id="navbarBlock">
+      <nav class="navbar is-danger" role="navigation" aria-label="main navigation" id="navbar">
           <div class="navbar-brand">
-              <a class="navbar-item" href="#">
-                 <h1 class="title is-4"><strong>Springboard</strong></h1>
+              <a class="navbar-item" id="navbarLogo" href="index.html">
+                 <h1 class="title is-4" id="springLogo"><strong>Springboard</strong></h1>
               </a>
           
-              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" id="logoBtn">
                   <span aria-hidden="true"></span>
                   <span aria-hidden="true"></span>
                   <span aria-hidden="true"></span>
               </a>
           </div>
 
-          <div id="navbarBasicExample" class="navbar-menu">
+          <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
               <div class="navbar-end">
-              <a class="navbar-item" href="index.html">
+              <a class="navbar-item" href="index.html" id="homeBtn">
                   <span class="icon">
                       <!--Each Icon will navigate the user to the corresponding page-->
                       <i class="fas fa-home"></i> 
                   </span>
               </a>
-              <a class="navbar-item" href="restaurants.html">
+              <a class="navbar-item" href="restaurants.html" id="eatBtn">
                   <span class="icon">
                       <!--Each Icon will navigate the user to the corresponding page-->
                       <i class="fas fa-utensils"></i>
                   </span>
               </a>
-              <a class="navbar-item" href="events.html">
+              <a class="navbar-item" href="events.html" id="eventBtn">
                   <span class="icon">
                       <!--Each Icon will navigate the user to the corresponding page-->
                       <i class="fas fa-city"></i>
                   </span>
               </a>
-              <a class="navbar-item" href="weather.html">
+              <a class="navbar-item" href="weather.html" id="weatherBtn">
                   <span class="icon">
                       <!--Each Icon will navigate the user to the corresponding page-->
                       <i class="fas fa-cloud"></i>
@@ -64,9 +64,9 @@
     <input id="search-bar"></input>
     <button id="searchBtn">Search</button>
     
-    <h1 class="title" id="eventTitle">Restaurants</h1>
+    <h1 class="title is-1" id="eventTitle">Restaurants</h1>
     <div class="city">
-        <h1 class="city" id="cityTitle">City Name</h1>
+        <h1 class="title is-3" id="cityTitle">City Name</h1>
       </div>
 
       <div class="dropdown">
@@ -81,7 +81,6 @@
         <div class="dropdown-menu" id="dropdown-menu" role="menu">
 
           <div class="dropdown-content">
-           
           </div>
         </div>
       </div>
@@ -94,20 +93,20 @@
       <div class ="mid-page">
         <!----   Sidebar menu with searched restaurants  -->
         <div class="block-side"> <!--- Samir put this the side next to restaurants (AO)-->
-          <aside class="menu is-two-thirds">
-            <p class="menu-label">
+          <aside class="menu is-two-thirds" id="sideMenu">
+            <p class="menu-label" id="sideOptionOne">
               Restaurant 1
             </p>
             <ul class="menu-list">
               <li><a href="">Link 1</a></li>
             </ul>
-            <p class="menu-label">
+            <p class="menu-label" id="sideOptionTwo">
               Restraurant 2
             </p>
             <ul class="menu-list">
               <li><a href="">Link 2</a></li>
             </ul>
-            <p class="menu-label">
+            <p class="menu-label" id="sideOptionThree">
               Restraurant 3
             </p>
             <ul class="menu-list">
@@ -120,27 +119,32 @@
         
           <!----Here is the container where the restaurants will display------->
         <section class="food_container">
+          <!--Each will be manipulated by the DOM-->
             <div class="block">
-              <div class="box">
-                <h1 class="title">Restaurant 1</h1>
+              <div class="box" id="restOneBox">
+                <!--Each should read literal restaurant name-->
+                <h1 class="title is-4" id="restOneTitle">Restaurant 1</h1>
               </div>
             </div>
-  
+            <!--Each will be manipulated by the DOM-->
             <div class="block">
-              <div class="box">
-                <h1 class="title">Restaurant 2</h1>
+              <div class="box" id="restTwoBox">
+                <!--Each should read literal restaurant name-->
+                <h1 class="title is-4" id="restTwoTitle">Restaurant 2</h1>
               </div>
             </div>
-  
+            <!--Each will be manipulated by the DOM-->
             <div class="block">
-              <div class="box">
-                <h1 class="title">Restaurant 3</h1>
+              <div class="box" id="restThreeBox">
+                <!--Each should read literal restaurant name-->
+                <h1 class="title is-4" id="restThreeTitle">Restaurant 3</h1>
               </div>
             </div>
-  
+            <!--Each will be manipulated by the DOM-->
             <div class="block">
-              <div class="box">
-                <h1 class="title">Restaurant 4</h1>
+              <div class="box" id="restFourBox">
+                <!--Each should read literal restaurant name-->
+                <h1 class="title is-4" id="restFourTitle">Restaurant 4</h1>
               </div>
             </div>
         </section>
@@ -150,8 +154,8 @@
       </div>
       <!--Created a container for the Nav items like event images and homepage images// they are set horizontally at the bottom of the page-->
       <div class="nav-container">
-        <div class="homepage_container">
-          <h2>Homepage</h2>
+        <div class="homepage_container" id="optionOne">
+          <h2 class="title is-4" id="optionOneTitle">Homepage</h2>
           <img
             src="./assets/homepage_card.jpg"
             alt="App homepage"
@@ -160,8 +164,8 @@
             />
         
         </div>
-        <div class="events_container">
-          <h2>Events</h2>
+        <div class="events_container" id="optionTwo">
+          <h2 class="title is-4" id="optionTwoTitle">Events</h2>
           <img
             src="./assets/events_homepage.jpg"
             alt="Events homepage"
@@ -170,8 +174,8 @@
           />
         </div>
   
-        <div class="weather_container">
-          <h2>Weather</h2>
+        <div class="weather_container" id="optionThree">
+          <h2 class="title is-4" id="optionThreeTitle">Weather</h2>
           <img
             src="./assets/weather_homepage.jpeg"
             alt="Weather homepage"
@@ -188,7 +192,7 @@
 
     <!---------   Footer    -------->
     <footer class="footer">
-      <div class="content has-text-centered">
+      <div class="content has-text-centered" id="footer">
           <p>
               <strong>Springboard</strong> by Alba Osmanaj, Carmen Johnson, Mark McDonald, Samir Abello, & Ty D'Angelo. 
           </p>
