@@ -841,6 +841,9 @@ $(document).ready(function () {
       ]
   };
 
+  var cuisineSelected = ''
+  var cuisineID
+
   let queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=1%2C151%2C3%2C193&sort=rating&order=desc";
   const APIKey = "cd932dfc82bc08b58c79cefff1fc925a";
   const APIKey2 = "1092a507c481907491fcd43ea457fbd9";
@@ -862,15 +865,18 @@ $(document).ready(function () {
   $("#searchBtn").on("click", function currentCity() {
     let searchInput = $("#search-bar").val();
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
-    // console.log("this is what we typed", searchInput);
+   
+    var corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
+    console.log("this is what we typed", searchInput);
     $.ajax({
       dataType: "json",
       url: citiesURL,
       method: "GET",
-      crossDomain: true,
-      async: true,
+     // crossDomain: true,
+     // async: true,
       headers: {
-        "user-key": APIKey2,
+        "user-key": APIKey,
+        "x-requested-with": "xhr" 
       },
     }).then(function (data) {
       let cityID = data.location_suggestions[0].id;
@@ -878,9 +884,17 @@ $(document).ready(function () {
       console.log("city ID from API? ", cityID);
       $("#cityTitle").text("Welcome to " + cityName);
       //   console.log("is city name working?", cityName)
+      var cityInfo = {
+          name: cityName,
+          cityId: cityID
+      }
+      var strCityInfo = JSON.stringify(cityInfo);
+      localStorage.setItem('cityInfo', strCityInfo)
 
-      restaurantRecs(cityID);
-    });
+     // restaurantRecs(cityID);
+    }).catch(function(err){
+        console.log("ERR FOR AJAX CALL", err)
+    })
   });
 
   //function to populate cuisine dropdown
@@ -892,15 +906,35 @@ $(document).ready(function () {
     $(".dropdown-content").append(dropdownItem);
     console.log("appending cuisines?")
   };
+  
+  // on click funciton to add is-active class to dropdown to show cuisine options
+  $('#cuisineDropdown').on('click', function() {
+        $('.dropdown').addClass('is-active');
+  })
+
+  // onclick function to add select (pointer) functionality to cuisine choice & collapse dropdown
+  $(".dropdown-item").on("click", function() {
+      $("#cuisine-choice").text($(this).text())
+      cuisineSelected = $(this).text()
+      $('.dropdown').removeClass('is-active');
+
+      var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
+      restaurantRecs(parseCityInfo.cityId)
+  })
 
   //function to populate restaurant recommendations by cityID
   function restaurantRecs(cityId) {
     for (let i = 0; i < cuisineOptions.cuisines.length; i++) {
+        console.log('this is the cuisine selected', cuisineSelected, 'comparing tooooo',cuisineOptions.cuisines[i].cuisine.cuisine_name )
+        if(cuisineSelected === cuisineOptions.cuisines[i].cuisine.cuisine_name) {
+             cuisineID = cuisineOptions.cuisines[i].cuisine.cuisine_id;
+        }
+     
+    };
+      console.log("cuisineID?", cuisineID, 'and this is city id to search', cityId)
 
-      let cuisineID = cuisineOptions.cuisines[i].cuisine.cuisine_id;
-      console.log("cuisineID?")
       let restaurantsURL =
-        "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=" + cuisineID + "&sort=rating&order=desc";
+        "https://developers.zomato.com/api/v2.1/search?entity_id=" + cityId + "&entity_type=city&start=0&count=100&cuisines=" + cuisineID + "&sort=rating&order=desc";
 
       $.ajax({
         dataType: "json",
@@ -909,13 +943,13 @@ $(document).ready(function () {
         crossDomain: true,
         async: true,
         headers: {
-          "user-key": APIKey2,
+          "user-key": APIKey,
         },
       }).then(function (data) {
         console.log("recommendation data!!!!", data);
 
       });
-    };
+    
   };
 
   $.ajax({
