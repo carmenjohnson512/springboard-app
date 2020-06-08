@@ -1,50 +1,41 @@
-.section{
-    display: inline;
-    align-content: center;
+.section {
+  display: inline;
+  align-content: center;
 }
 
-.title{
-    text-align: center;
-    margin-top: -40px;
+.title {
+  text-align: center;
+  margin-top: -40px;
 }
 
-.city{
-    text-align: center;
+.city {
+  text-align: center;
 }
 
 .event-container {
-    display: flex;
-    align-self: flex-end;
-    flex-direction: row;
-    align-items: flex-start;
-    margin-left: 120px;
-    
-    
-
-
+  display: flex;
+  align-self: flex-end;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-left: 120px;
 }
 
-.column{
-    margin: 0px;
-    flex-wrap: wrap;
-
+.column {
+  margin: 0px;
+  flex-wrap: wrap;
 }
 
-
-.card{
-    display: flex;
-    width: 225px;
-    height: 200px;
-    text-align: center;
-    border-style: solid;
-    align-content: flex-end;
-    flex-wrap: wrap;
-    
-    
-    
+.card {
+  display: flex;
+  width: 225px;
+  height: 200px;
+  text-align: center;
+  border-style: solid;
+  align-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .card-content .title {
-    align-self: center;
-    font-size: medium;
+  align-self: center;
+  font-size: medium;
 }
