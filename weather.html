@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Forecast</title>
+    <title>Springboard Forecast</title>
     <script
       defer
       src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
@@ -16,46 +16,46 @@
       src="https://kit.fontawesome.com/db5e26bbb4.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/weatherstyle.css" />
   </head>
   <body>
 
     <!--Navigation Bar-->
-    <div class="block">
-        <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
+    <div class="block" id="navbarBlock">
+        <nav class="navbar is-danger" role="navigation" aria-label="main navigation" id="navbar">
             <div class="navbar-brand">
-                <a class="navbar-item" href="index.html">
-                    <h1 class="title is-4"><strong>Springboard.</strong></h1>
+                <a class="navbar-item" id="navbarLogo" href="index.html">
+                    <h1 class="title is-4" id="springLogo"><strong>Springboard</strong></h1>
                 </a>
     
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" id="logoBtn">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
     
-            <div id="navbarBasicExample" class="navbar-menu">
+            <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
                 <div class="navbar-end">
-                    <a class="navbar-item" href="index.html">
+                    <a class="navbar-item" href="index.html" id="homeBtn">
                         <span class="icon">
                             <!--Each Icon will navigate the user to the corresponding page-->
                             <i class="fas fa-home"></i>
                         </span>
                     </a>
-                    <a class="navbar-item" href="restaurants.html">
+                    <a class="navbar-item" href="restaurants.html" id="eatBtn">
                         <span class="icon">
                             <!--Each Icon will navigate the user to the corresponding page-->
                             <i class="fas fa-utensils"></i>
                         </span>
                     </a>
-                    <a class="navbar-item" href="events.html">
+                    <a class="navbar-item" href="events.html" id="eventBtn">
                         <span class="icon">
                             <!--Each Icon will navigate the user to the corresponding page-->
                             <i class="fas fa-city"></i>
                         </span>
                     </a>
-                    <a class="navbar-item" href="weather.html">
+                    <a class="navbar-item" href="weather.html" id="weatherBtn"
                         <span class="icon">
                             <!--Each Icon will navigate the user to the corresponding page-->
                             <i class="fas fa-cloud"></i>
@@ -69,25 +69,27 @@
         <p>What city are you exploring?</p>
         <input id="search-bar"></input>
         <button id="searchBtn">Search</button>
+
+        <h1 class="title is-2 is-centered" id="weatherTitle">Forecast</h1>
+        <br>
+         <!-- Use geolocation in .js to grab users current location-->
+        <h1 class="title is-3" id="cityTitle">City Name</h1>
     </section>
 
-    <section>
-        <h1 class="title is-2">City Name</h1> <!-- Use geolocation in .js to grab users current location-->
-        <div class="container">
-    </section>
+    
     
 
     <section>
-        <div class="container">
+        <div class="container is-centered">
             <!--Forecast Box (Current Day)-->
-            <div class="block">
-                <div class="box">
+            <div class="block-curr is-centered">
+                <div class="box" id="currentdayBox">
                     <!--Will change with DOM Manipulation-->
-                    <h1 class="title is-4">Day 1</h1>
-                    <h1 class="title is-5">76°F</h1>
-                    <h1 class="title is-6">Humidity:</h1>
-                    <h1 class="title is-6">Wind Speed:</h1>
-                    <h1 class="title is-6">UV Index:</h1>
+                    <h1 class="title is-4" id="dayOneTitle">Day 1</h1>
+                    <h1 class="title is-5" id="dayOneTemp">76°F</h1>
+                    <h1 class="title is-6" id="dayOneHumid">Humidity:</h1>
+                    <h1 class="title is-6" id="dayOneWind">Wind Speed:</h1>
+                    <h1 class="title is-6" id="dayOneUV">UV Index:</h1>
                 </div>
             </div>
         </div>
@@ -99,14 +101,14 @@
             <div class="columns">
                 <div class="column">
                     <div class="block">
-                        <div class="box">
+                        <div class="box" id="dayTwoBox">
                             <!--Will change with DOM Manipulation-->
-                            <h1 class="title is-4">Next Day</h1>
-                            <h1 class="title is-5">High:</h1>
-                            <h1 class="title is-5">Low:</h1>
-                            <h1 class="title is-6">Humidity:</h1>
-                            <h1 class="title is-6">Wind Speed:</h1>
-                            <h1 class="title is-6">UV Index:</h1>
+                            <h1 class="title is-4" id="dayTwoTitle">Day 2</h1>
+                            <h1 class="title is-5" id="dayTwoHigh">High:</h1>
+                            <h1 class="title is-5" id="dayTwoLow">Low:</h1>
+                            <h1 class="title is-6" id="dayTwoHumid">Humidity:</h1>
+                            <h1 class="title is-6" id="dayTwoWind">Wind Speed:</h1>
+                            <h1 class="title is-6" id="dayTwoUV">UV Index:</h1>
                         </div>
                     </div>
                 </div>
@@ -114,14 +116,14 @@
                     <!--Works like rows-->
                     <div class="column">
                         <div class="block">
-                            <div class="box">
+                            <div class="box" id="dayThreeBox">
                                 <!--Will change with DOM Manipulation-->
-                                <h1 class="title is-4">Day 3</h1>
-                                <h1 class="title is-5">High:</h1>
-                                <h1 class="title is-5">Low:</h1>
-                                <h1 class="title is-6">Humidity:</h1>
-                                <h1 class="title is-6">Wind Speed:</h1>
-                                <h1 class="title is-6">UV Index:</h1>
+                                <h1 class="title is-4" id="dayThreeTitle">Day 3</h1>
+                                <h1 class="title is-5" id="dayThreeHigh">High:</h1>
+                                <h1 class="title is-5" id="dayThreeLow">Low:</h1>
+                                <h1 class="title is-6" id="dayThreeHumid">Humidity:</h1>
+                                <h1 class="title is-6" id="dayThreeWind">Wind Speed:</h1>
+                                <h1 class="title is-6" id="dayThreeUV">UV Index:</h1>
                             </div>
                         </div>
                     </div>
@@ -130,14 +132,14 @@
                     <!--Works like rows-->
                     <div class="column">
                         <div class="block">
-                            <div class="box">
+                            <div class="box" id="dayFourBox">
                                 <!--Will change with DOM Manipulation-->
-                                <h1 class="title is-4">Day 4</h1>
-                                <h1 class="title is-5">High:</h1>
-                                <h1 class="title is-5">Low:</h1>
-                                <h1 class="title is-6">Humidity:</h1>
-                                <h1 class="title is-6">Wind Speed:</h1>
-                                <h1 class="title is-6">UV Index:</h1>
+                                <h1 class="title is-4" id="dayFourTitle">Day 4</h1>
+                                <h1 class="title is-5" id="dayFourHigh">High:</h1>
+                                <h1 class="title is-5" id="dayFourLow">Low:</h1>
+                                <h1 class="title is-6" id="dayFourHumid">Humidity:</h1>
+                                <h1 class="title is-6" id="dayFourWind">Wind Speed:</h1>
+                                <h1 class="title is-6" id="dayFourUV">UV Index:</h1>
                             </div>
                         </div>
                     </div>
@@ -146,14 +148,14 @@
                     <!--Works like rows-->
                     <div class="column">
                         <div class="block">
-                            <div class="box">
+                            <div class="box" id="dayFiveBox">
                                 <!--Will change with DOM Manipulation-->
-                                <h1 class="title is-4">Day 5</h1>
-                                <h1 class="title is-5">High:</h1>
-                                <h1 class="title is-5">Low:</h1>
-                                <h1 class="title is-6">Humidity:</h1>
-                                <h1 class="title is-6">Wind Speed:</h1>
-                                <h1 class="title is-6">UV Index:</h1>
+                                <h1 class="title is-4" id="dayFiveTitle">Day 5</h1>
+                                <h1 class="title is-5" id="dayFiveHigh">High:</h1>
+                                <h1 class="title is-5" id="dayFiveLow">Low:</h1>
+                                <h1 class="title is-6" id="dayFiveHumid">Humidity:</h1>
+                                <h1 class="title is-6" id="dayFiveWind">Wind Speed:</h1>
+                                <h1 class="title is-6" id="dayFiveUV">UV Index:</h1>
                             </div>
                         </div>
                     </div>
@@ -162,14 +164,14 @@
                     <!--Works like rows-->
                     <div class="column">
                         <div class="block">
-                            <div class="box">
+                            <div class="box" id="daySixBox">
                                 <!--Will change with DOM Manipulation-->
-                                <h1 class="title is-4">Day 6</h1>
-                                <h1 class="title is-5">High:</h1>
-                                <h1 class="title is-5">Low:</h1>
-                                <h1 class="title is-6">Humidity:</h1>
-                                <h1 class="title is-6">Wind Speed:</h1>
-                                <h1 class="title is-6">UV Index:</h1>
+                                <h1 class="title is-4" id="daySixTitle">Day 6</h1>
+                                <h1 class="title is-5" id="daySixHigh">High:</h1>
+                                <h1 class="title is-5" id="daySixLow">Low:</h1>
+                                <h1 class="title is-6" id="daySixHumid">Humidity:</h1>
+                                <h1 class="title is-6" id="daySixWind">Wind Speed:</h1>
+                                <h1 class="title is-6" id="daySixUV">UV Index:</h1>
                             </div>
                         </div>
                     </div>
@@ -178,5 +180,20 @@
         </div>
     </section>
 
+    <!---------   Footer    -------->
+    <footer class="footer">
+        <div class="content has-text-centered" id="footer">
+            <p>
+                <strong>Springboard</strong> by Alba Osmanaj, Carmen Johnson, Mark McDonald, Samir Abello, & Ty D'Angelo.
+            </p>
+        </div>
+    </footer>
+
   </body>
+
+<!--Javascript/JQuery Link-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="./assets/springboard.js"></script>
+
 </html>
