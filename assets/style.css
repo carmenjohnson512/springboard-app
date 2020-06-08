@@ -1,23 +1,17 @@
-.title{
-    align-items: center;
-    text-align: center;
-    
-    
+.title {
+  align-items: center;
+  text-align: center;
 }
 
-
-
-.container{
-    display: flex;
-    justify-content: space-around;
-    padding-top: 10px;
+.container {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
 }
 
-.city{
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 40px;
-    padding-top: 10px;
- 
-
+.city {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 40px;
+  padding-top: 10px;
 }

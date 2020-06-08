@@ -1,64 +1,49 @@
-.title{
-    align-items: center;
-    text-align: center;
-    margin-top: -40px;
-    
-    
-    
-    
+.title {
+  align-items: center;
+  text-align: center;
 }
 
-.city{
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 40px;
-    padding-top: 10px;
-    
-
+.city {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-top: 10px;
 }
 
-.city-Name{
-    text-align: center;
-    align-content: center;
-    margin-left: 400px;
-    margin-bottom: 35px;
-    
+.city-Name {
+  text-align: center;
+  align-content: center;
+  margin-left: 400px;
+  margin-bottom: 35px;
 }
 
-.container{
-    display: flex;
+.container {
+  display: flex;
 }
 
-.sidebar{
-    display: block;
-    align-items: flex-start;
-    border-style: solid;
-    border-color: black;
-  
+.sidebar {
+  display: block;
+  align-items: flex-start;
+  border-style: solid;
+  border-color: black;
 }
-.food_container{
-    width: 80%;
-    display: flex;
-    align-items: start;
-    justify-content: space-evenly;
-}
-
-
-.nav-container{
-    display: flex;
-    justify-content: space-around;
-
-
+.food_container {
+  width: 80%;
+  display: flex;
+  align-items: start;
+  justify-content: space-evenly;
 }
 
-.mid-page{
-    display: flex;
-    
+.nav-container {
+  display: flex;
+  justify-content: space-around;
 }
 
-.food_container{
-    margin-left: 65px;
+.mid-page {
+  display: flex;
 }
 
+.food_container {
+  margin-left: 65px;
+}

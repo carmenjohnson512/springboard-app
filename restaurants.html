@@ -58,16 +58,16 @@
       </nav>
   </div>
   <!-----------  Webpage body content --------->
-    <section class="section">
-      <div class="title">Springboard</div>
-      <div class="city">
-        <div class="search">
-          <p>What city are you exploring?</p>        
-            <input id="search-bar"></input>
-            <button id="searchBtn">Search</button>
-        </div>
+  <section class="section">
+    <p id="userPrompt">What city are you exploring?</p>
+    <input id="search-bar"></input>
+    <button id="searchBtn">Search</button>
+    
+    <h1 class="title" id="eventTitle">Restaurants</h1>
+    <div class="city">
         <h1 class="city" id="cityTitle">City Name</h1>
       </div>
+
       <div class="dropdown is-active">
         <div class="dropdown-trigger">
           <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
@@ -83,10 +83,6 @@
           </div>
         </div>
       </div>
-      
-
-            
-
             
             <!-- Use geolocation in .js to grab users current location-->
             
@@ -148,18 +144,12 @@
         </section>
 
       </div>
-      
-
-      
-
-          
-       
 
       </div>
       <!--Created a container for the Nav items like event images and homepage images// they are set horizontally at the bottom of the page-->
       <div class="nav-container">
         <div class="homepage_container">
-          <h2>Homepage</h2> <!--Samir I added the homepage it just needs CSS applied to it.(AO)-->
+          <h2>Homepage</h2>
           <img
             src="./assets/homepage_card.jpg"
             alt="App homepage"
