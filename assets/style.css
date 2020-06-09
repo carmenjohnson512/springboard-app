@@ -33,3 +33,11 @@
   margin-top: 1.25rem;
   margin-right: 1rem;
 }
+
+#homeBar {
+  width: 32rem;
+}
+
+#navBarSearch {
+  width: 7rem;
+}
