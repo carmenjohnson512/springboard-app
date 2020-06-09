@@ -28,7 +28,7 @@
                 <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
                     <div class="navbar-end">
                         <div class="field has-addons">
-                            <p class="control has-icons-left">
+                            <p class="control has-icons-left" id="navBarSearch">
                                 <input class="input is-small is-rounded" type="text" placeholder="Pick a City...">
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-city"></i>
@@ -53,7 +53,7 @@
                         <a class="navbar-item" href="events.html" id="eventBtn">
                             <span class="icon">
                                 <!--Each Icon will navigate the user to the corresponding page-->
-                                <i class="fas fa-city"></i>
+                                <i class="fas fa-ticket-alt"></i>
                             </span>
                         </a>
                         <a class="navbar-item" href="weather.html" id="weatherBtn">
@@ -71,17 +71,17 @@
             <h1 class="title is-1" id="homeTitle">What City Are You Exploring?</h1>
             <!-----Search Bar------>
             <div class="block">
-                <div class="field has-addons">
-                    <p class="control has-icons-left">
-                        <input class="input is-rounded" type="input" placeholder="Pick a City...">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-city"></i>
-                        </span>
-                    </p>
-                    <p class="control">
-                        <a href="" class="button is-info is-danger is-rounded">Explore</a>
-                    </p>
-                </div>
+                    <div class="field has-addons">
+                            <p class="control has-icons-left" id="homeBar">
+                                <input class="input is-rounded" type="input" placeholder="Pick a City...">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-city"></i>
+                                </span>
+                            </p>
+                            <p class="control" id="homeBarBtn">
+                                <a href="" class="button is-info is-danger is-rounded">Explore</a>
+                            </p>
+                    </div>
             </div>
 
             <!--JQuery will manipulate the DOM to display the inputted city from the search bar-->
