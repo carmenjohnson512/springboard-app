@@ -1,4 +1,4 @@
-.title {
+/*.title {
   align-items: center;
   text-align: center;
 }
@@ -11,11 +11,23 @@
   padding-top: 10px;
 }
 
-.city-Name {
+#cityTitle {
+  display: flex;
+  flex-direction: row;
   text-align: center;
-  align-content: center;
-  margin-left: 400px;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  
+}*/
+
+.topdiv{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-top: 10px;
+ 
+  
 }
 
 .dropdown-item {
