@@ -16,3 +16,20 @@
   padding-top: 10px;
 }
 
+/* Search Bar */
+.field.has-addons {
+  display: flex;
+  justify-content: center;
+}
+
+/* Logo (Top Left) */
+#springLogo {
+  color: #ffffff;
+}
+
+/* nav bar search bar*/
+.field:not(:last-child) {
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+  margin-right: 1rem;
+}
