@@ -865,35 +865,39 @@ $(document).ready(function () {
   $("#searchBtn").on("click", function currentCity() {
     let searchInput = $("#search-bar").val();
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
+ 
    
     // let corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
+
     console.log("this is what we typed", searchInput);
     $.ajax({
       dataType: "json",
       url: citiesURL,
       method: "GET",
-     // crossDomain: true,
-     // async: true,
+      // crossDomain: true,
+      // async: true,
       headers: {
         "user-key": APIKey,
-        "x-requested-with": "xhr" 
+        "x-requested-with": "xhr"
       },
     }).then(function (data) {
       let cityID = data.location_suggestions[0].id;
       let cityName = data.location_suggestions[0].name;
       console.log("city ID from API? ", cityID);
       $("#cityTitle").text("Welcome to " + cityName);
-        console.log("is city name working?", cityName)
+      //   console.log("is city name working?", cityName)
+
       let cityInfo = {
           name: cityName,
           cityId: cityID
+
       }
       let strCityInfo = JSON.stringify(cityInfo);
       localStorage.setItem('cityInfo', strCityInfo)
 
-     // restaurantRecs(cityID);
-    }).catch(function(err){
-        console.log("ERR FOR AJAX CALL", err)
+      // restaurantRecs(cityID);
+    }).catch(function (err) {
+      console.log("ERR FOR AJAX CALL", err)
     })
   });
 
@@ -906,20 +910,22 @@ $(document).ready(function () {
     $(".dropdown-content").append(dropdownItem);
     // console.log("appending cuisines?")
   };
-  
+
   // on click funciton to add is-active class to dropdown to show cuisine options
-  $('#cuisineDropdown').on('click', function() {
-        $('.dropdown').addClass('is-active');
+  $('#cuisineDropdown').on('click', function () {
+    $('.dropdown').addClass('is-active');
   })
 
   // onclick function to add select (pointer) functionality to cuisine choice & collapse dropdown
-  $(".dropdown-item").on("click", function() {
-      $("#cuisine-choice").text($(this).text())
-      cuisineSelected = $(this).text()
-      $('.dropdown').removeClass('is-active');
+  $(".dropdown-item").on("click", function () {
+    $("#cuisine-choice").text($(this).text())
+    cuisineSelected = $(this).text()
+    $('.dropdown').removeClass('is-active');
+
 
       let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
       restaurantRecs(parseCityInfo.cityId)
+
   })
 
   //function to populate restaurant recommendations by cityID
@@ -1068,51 +1074,120 @@ $(document).ready(function () {
     //   console.log("cuisineID?", cuisineID, 'and this is city id to search', cityId)
 
 };
-    //   let restaurantsURL =
-    //     "https://developers.zomato.com/api/v2.1/search?entity_id=" + cityId + "&entity_type=city&start=0&count=20&cuisines=" + cuisineID + "&sort=rating&order=desc";
 
-    //   $.ajax({
-    //     dataType: "json",
-    //     url: restaurantsURL,
-    //     method: "GET",
-    //     crossDomain: true,
-    //     async: true,
-    //     headers: {
-    //       "user-key": APIKey,
-    //     },
-    //   }).then(function (data) {
-    //     console.log("recommendation data!!!!", data);
-    //     for (let i = 0; i < data.restaurants.length; i++) {
-    //         let restaurantName = data.restaurants[i].restaurant.name;
-    //         let establishment = data.restaurants[i].restaurant.establishment; 
-    //         let cuisine = data.restaurants[i].restaurant.cuisines;
-    //         let rating = data.restaurants[i].restaurant.user_rating; 	
-    //         let restaurantURL = data.restaurants[i].restaurant.url;
-    //         let phoneNumber = data.restaurants[i].restaurant.phone_numbers;
-    //         let location = data.restaurants[i].restaurant.location.address;
-    //         let hoursOfOperation = data.restaurants[i].restaurant.timings;
+  var page = 0;
 
+  function getEvents(page) {
 
-    //     } console.log("restaurant name?", data.restaurants[19].restaurant.name)
-        
+    $('#events-panel').show();
+    $('#attraction-panel').hide();
 
-    
-    
- 
+    if (page < 0) {
+      page = 0;
+      return;
+    }
+    if (page > 0) {
+      if (page > getEvents.json.page.totalPages - 1) {
+        page = 0;
+      }
+    }
 
-  $.ajax({
-    type: "GET",
-    url:
-      "https://app.ticketmaster.com/discovery/v2/events.json?size=20&apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&city=Austin&countryCode=US",
-    async: true,
-    dataType: "json",
-    success: function (json) {
-      console.log(json);
-      // Parse the response.
-      // Do other things.
-    },
-    error: function (xhr, status, err) {
-      // This time, we do not end up here!
-    },
+    $.ajax({
+      type: "GET",
+      url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=Austin&size=4&page=" + page,
+      async: true,
+      dataType: "json",
+      success: function (json) {
+        getEvents.json = json;
+        showEvents(json);
+      },
+      error: function (xhr, status, err) {
+        console.log(err);
+      }
+    });
+  }
+
+  function showEvents(json) {
+    var items = $('#events .list-group-item');
+    items.hide();
+    var events = json._embedded.events;
+    var item = items.first();
+    for (var i = 0; i < events.length; i++) {
+      item.children('.list-group-item-heading').text(events[i].name);
+      item.children('.list-group-item-text').text(events[i].dates.start.localDate);
+      try {
+        item.children('.venue').text(events[i]._embedded.venues[0].name + " in " + events[i]._embedded.venues[0].city.name);
+      } catch (err) {
+        console.log(err);
+      }
+      item.show();
+      item.off("click");
+      item.click(events[i], function (eventObject) {
+        console.log(eventObject.data);
+        try {
+          getAttraction(eventObject.data._embedded.attractions[0].id);
+        } catch (err) {
+          console.log(err);
+        }
+      });
+      item = item.next();
+    }
+  }
+
+  $('#prev').click(function () {
+    getEvents(--page);
   });
+
+  $('#next').click(function () {
+    getEvents(++page);
+  });
+
+  function getAttraction(id) {
+    $.ajax({
+      type: "GET",
+      url: "https://app.ticketmaster.com/discovery/v2/attractions/" + id + ".json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=Austin",
+      async: true,
+      dataType: "json",
+      success: function (json) {
+        showAttraction(json);
+      },
+      error: function (xhr, status, err) {
+        console.log(err);
+      }
+    });
+  }
+
+  function showAttraction(json) {
+    $('#events-panel').hide();
+    $('#attraction-panel').show();
+
+    $('#attraction-panel').click(function () {
+      getEvents(page);
+    });
+
+    $('#attraction .list-group-item-heading').first().text(json.name);
+    $('#attraction img').first().attr('src', json.images[0].url);
+    $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
+  }
+
+  getEvents(page);
+
+
+
+
+  // $.ajax({
+  // type: "GET",
+  // url:
+  // "https://app.ticketmaster.com/discovery/v2/events.json?size=20&apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&city=Austin&countryCode=US",
+  // async: true,
+  // dataType: "json",
+  // success: function (json) {
+  // console.log(json);
+  // Parse the response.
+  // Do other things.
+  // },
+  // error: function (xhr, status, err) {
+  // This time, we do not end up here!
+  /*     },
+    }); */
 });

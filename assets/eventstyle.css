@@ -14,15 +14,13 @@
 
 
 .topdiv{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 30px;
-    padding-top: 10px;
-   
-    
-  }
-
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-top: 10px;
+}
+/* 
 
 .event-container {
   display: flex;
@@ -51,3 +49,4 @@
   align-self: center;
   font-size: medium;
 }
+ */
