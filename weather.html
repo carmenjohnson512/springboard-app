@@ -37,6 +37,17 @@
     
             <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
                 <div class="navbar-end">
+                    <div class="field has-addons">
+                        <p class="control has-icons-left">
+                            <input class="input is-small is-rounded" type="text" placeholder="Pick a City...">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-city"></i>
+                            </span>
+                        </p>
+                        <p class="control">
+                            <a href="" class="button is-small is-rounded">Explore</a>
+                        </p>
+                    </div>
                     <a class="navbar-item" href="index.html" id="homeBtn">
                         <span class="icon">
                             <!--Each Icon will navigate the user to the corresponding page-->
@@ -66,27 +77,11 @@
     </div>
 
     <section class="section">
-    <!-----Search Bar------>
-    <div class="block">
-        <div class="field has-addons">
-            <p class="control has-icons-left" id="exploreInput">
-                <input class="input is-rounded" type="input" placeholder="Pick a City...">
-                <span class="icon is-small is-left">
-                    <i class="fas fa-city"></i>
-                </span>
-            </p>
-    <!----Search Button---->
-            <p class="control">
-                <a href="" class="button is-info is-danger is-rounded" id="exploreBtn">Explore</a>
-            </p>
-        </div>
-    </div>
-
         <div class="topdiv">
             <h1 class="title is-1 is-centered" id="weatherTitle">Forecast</h1>
             <br>
-            <!-- Use geolocation in .js to grab users current location-->
-            <h1 class="title is-3" id="cityTitle">City Name</h1>
+            <!--JQuery will manipulate the DOM to display the inputted city from the search bar-->
+            <h1 class="title is-3" id="cityTitle"></h1>
 
         </div>
 
@@ -203,14 +198,8 @@
         </div>
     </section>
 
-    <!---------   Footer    -------->
-    <footer class="footer">
-        <div class="content has-text-centered" id="footer">
-            <p>
-                <strong>Springboard</strong> by Alba Osmanaj, Carmen Johnson, Mark McDonald, Samir Abello, & Ty D'Angelo.
-            </p>
-        </div>
-    </footer>
+    <!--------- Removed  Footer    -------->
+   
 
   </body>
 

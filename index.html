@@ -27,6 +27,17 @@
         
                 <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
                     <div class="navbar-end">
+                        <div class="field has-addons">
+                            <p class="control has-icons-left">
+                                <input class="input is-small is-rounded" type="text" placeholder="Pick a City...">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-city"></i>
+                                </span>
+                            </p>
+                            <p class="control">
+                                <a href="" class="button is-small is-rounded">Explore</a>
+                            </p>
+                        </div>
                         <a class="navbar-item" href="index.html" id="homeBtn">
                             <span class="icon">
                                 <!--Each Icon will navigate the user to the corresponding page-->
@@ -56,8 +67,9 @@
         </div>
     <!-----------  Webpage body content --------->
         <section class="section">
-
-        <!-----Search Bar------>
+            
+            <h1 class="title is-1" id="homeTitle">What City Are You Exploring?</h1>
+            <!-----Search Bar------>
             <div class="block">
                 <div class="field has-addons">
                     <p class="control has-icons-left">
@@ -71,12 +83,13 @@
                     </p>
                 </div>
             </div>
-                
 
-            <h1 class="title is-1" id="homeTitle">Welcome to Springboard!</h1>
-            <!--moved city class out of the image container-->
-            <h1 class="title is-3" id="cityTitle">City Name</h1>  <!-- Use geolocation in .js to grab users current location-->
-            <div class="container">
+            <!--JQuery will manipulate the DOM to display the inputted city from the search bar-->
+            <h1 class="title is-3" id="cityTitle"></h1>
+
+            <!-- JQuery will manipulate the DOM to display these cards after the city is inputted by the user-->
+            
+            <div class="container" id="navCardContainer">
                 <div class="restaurant_container" id="optionOne">
                     <a class="restaurant-page" href="restaurants.html" id="restaurant-link">
                         <h2 class="title is-4" id="optionOneTitle">Restaurants</h2> 
@@ -108,16 +121,12 @@
                         style="width: 300px; height: 250px;">
                     </a>  
                 </div>
+            </div>
+            
     </section>
 
-    <!---------   Footer    -------->
-    <footer class="footer">
-        <div class="content has-text-centered" id="footer">
-            <p>
-                <strong>Springboard</strong> by Alba Osmanaj, Carmen Johnson, Mark McDonald, Samir Abello, & Ty D'Angelo. 
-            </p>
-        </div>
-    </footer>
+    <!---------  Removed Footer    -------->
+    
   </body>
 
   <!--Javascript/JQuery Link-->
