@@ -66,9 +66,21 @@
     </div>
 
     <section class="section">
-        <p>What city are you exploring?</p>
-        <input id="search-bar"></input>
-        <button id="searchBtn">Search</button>
+    <!-----Search Bar------>
+    <div class="block">
+        <div class="field has-addons">
+            <p class="control has-icons-left" id="exploreInput">
+                <input class="input is-rounded" type="input" placeholder="Pick a City...">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-city"></i>
+                </span>
+            </p>
+    <!----Search Button---->
+            <p class="control">
+                <a href="" class="button is-info is-danger is-rounded" id="exploreBtn">Explore</a>
+            </p>
+        </div>
+    </div>
 
         <div class="topdiv">
             <h1 class="title is-1 is-centered" id="weatherTitle">Forecast</h1>
@@ -82,23 +94,28 @@
     </section>
 
     
-    
 
     <section>
-        <div class="container is-centered">
-            <!--Forecast Box (Current Day)-->
-            <div class="block-curr is-centered">
-                <div class="box" id="currentdayBox">
-                    <!--Will change with DOM Manipulation-->
-                    <h1 class="title is-4" id="dayOneTitle">Day 1</h1>
-                    <h1 class="title is-5" id="dayOneTemp">76°F</h1>
-                    <h1 class="title is-6" id="dayOneHumid">Humidity:</h1>
-                    <h1 class="title is-6" id="dayOneWind">Wind Speed:</h1>
-                    <h1 class="title is-6" id="dayOneUV">UV Index:</h1>
+        <div class="block">
+            <div class="columns">
+                <div class="column is-5"></div>
+                <div class="column is-2">
+                    <div class="block">
+                        <div class="box" id="dayOneBox">
+                            <!--Will change with DOM Manipulation-->
+                            <h1 class="title is-4" id="dayOneTitle">Day 1</h1>
+                            <h1 class="title is-5" id="dayOneTemp">76°F</h1>
+                            <h1 class="title is-6" id="dayOneHumid">Humidity:</h1>
+                            <h1 class="title is-6" id="dayOneWind">Wind Speed:</h1>
+                            <h1 class="title is-6" id="dayOneUV">UV Index:</h1>
+                        </div>
+                    </div>
                 </div>
+                <div class="column is-5"></div>
             </div>
         </div>
     </section>
+
 
     <section>
         <!--Five Day Forecast Cards-->
@@ -180,6 +197,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="column"></div>
                 </div>
             </div>
         </div>
