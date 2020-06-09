@@ -865,8 +865,13 @@ $(document).ready(function () {
   $("#searchBtn").on("click", function currentCity() {
     let searchInput = $("#search-bar").val();
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
+ 
 
-    var corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
+   
+
+   
+    // let corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
+
     console.log("this is what we typed", searchInput);
     $.ajax({
       dataType: "json",
@@ -884,11 +889,13 @@ $(document).ready(function () {
       console.log("city ID from API? ", cityID);
       $("#cityTitle").text("Welcome to " + cityName);
       //   console.log("is city name working?", cityName)
-      var cityInfo = {
-        name: cityName,
-        cityId: cityID
+
+      let cityInfo = {
+          name: cityName,
+          cityId: cityID
+
       }
-      var strCityInfo = JSON.stringify(cityInfo);
+      let strCityInfo = JSON.stringify(cityInfo);
       localStorage.setItem('cityInfo', strCityInfo)
 
       // restaurantRecs(cityID);
@@ -918,8 +925,10 @@ $(document).ready(function () {
     cuisineSelected = $(this).text()
     $('.dropdown').removeClass('is-active');
 
-    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
-    restaurantRecs(parseCityInfo.cityId)
+
+      let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
+      restaurantRecs(parseCityInfo.cityId)
+
   })
 
   //function to populate restaurant recommendations by cityID
