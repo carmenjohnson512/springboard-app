@@ -4,6 +4,14 @@
 
 }
 
+.topdiv{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+
 .container{
     align-self: center;
     max-width: fit-content;
