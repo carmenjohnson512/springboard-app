@@ -1175,6 +1175,23 @@ $(document).ready(function () {
 
 
 
+  //Just brainstorming here. Up to the JS team to review it
+  /* function getCity(){
+     //Check if local storage has any city stored
+     let x = localStorage.getitem(city,value)
+     if (x === null){
+       set modal to display block
+       modal.style.display = "block"
+     } 
+     else {
+       set modal to display none
+       variable city accross all pages is set to x
+     }
+  }//End of function
+
+
+
+
   // $.ajax({
   // type: "GET",
   // url:
