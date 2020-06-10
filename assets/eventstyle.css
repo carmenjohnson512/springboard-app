@@ -60,3 +60,20 @@
   font-size: medium;
 }
  */
+
+
+/* Logo (Top Left) */
+#springLogo {
+  color: #ffffff;
+}
+
+/* nav bar search bar*/
+.field:not(:last-child) {
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+  margin-right: 1rem;
+}
+
+#navBarSearch {
+  width: 7rem;
+}

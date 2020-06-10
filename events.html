@@ -27,16 +27,27 @@
                 <a class="navbar-item" id="navbarLogo" href="index.html">
                     <h1 class="title is-4" id="springLogo"><strong>Springboard</strong></h1>
                 </a>
-
+    
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" id="logoBtn">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-
+    
             <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
                 <div class="navbar-end">
+                    <div class="field has-addons">
+                        <p class="control has-icons-left" id="navBarSearch">
+                            <input class="input is-small is-rounded" type="text" placeholder="Pick a City...">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-city"></i>
+                            </span>
+                        </p>
+                        <p class="control">
+                            <a href="" class="button is-small is-rounded">Explore</a>
+                        </p>
+                    </div>
                     <a class="navbar-item" href="index.html" id="homeBtn">
                         <span class="icon">
                             <!--Each Icon will navigate the user to the corresponding page-->
@@ -52,7 +63,7 @@
                     <a class="navbar-item" href="events.html" id="eventBtn">
                         <span class="icon">
                             <!--Each Icon will navigate the user to the corresponding page-->
-                            <i class="fas fa-city"></i>
+                            <i class="fas fa-ticket-alt"></i>
                         </span>
                     </a>
                     <a class="navbar-item" href="weather.html" id="weatherBtn">
@@ -66,13 +77,10 @@
     </div>
 
     <section class="section">
-        <p id="userPrompt">What city are you exploring?</p>
-        <input id="search-bar"></input>
-        <button id="searchBtn">Search</button>
         <div class="topdiv">
             <h1 class="title is-1" id="eventTitle">Events</h1>
-            <!-- Use geolocation in .js to grab users current location-->
-            <h1 class="title is-3" id="cityTitle">City Name</h1>
+            <!--JQuery will manipulate the DOM to display the inputted city from the search bar-->
+            <h1 class="title is-3" id="cityTitle"></h1>
 
         </div>
 
@@ -273,14 +281,7 @@
          </div> -->
 
 
-    <footer class="footer">
-        <div class="content has-text-centered" id="footer">
-            <p>
-                <strong>Springboard</strong> by Alba Osmanaj, Carmen Johnson, Mark McDonald, Samir Abello, &
-                Ty D'Angelo.
-            </p>
-        </div>
-    </footer>
+    <!--Removed Footer-->
 
 </body>
 
