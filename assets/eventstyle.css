@@ -20,6 +20,16 @@
   margin-bottom: 30px;
   padding-top: 10px;
 }
+
+
+#panel-heading{
+  background-color: #f14668;
+  color: #f14668;
+
+}
+
+
+
 /* 
 
 .event-container {
@@ -66,4 +76,8 @@
 
 #navBarSearch {
   width: 7rem;
+}
+
+.container{
+  
 }
