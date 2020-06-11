@@ -843,16 +843,17 @@ $(document).ready(function () {
 
   var cuisineSelected = '';
   var cuisineID;
-  let searchInput = $(".input").val();
+  let searchInput = " ";
 
   let queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=1%2C151%2C3%2C193&sort=rating&order=desc";
   const APIKey = "cd932dfc82bc08b58c79cefff1fc925a";
   const APIKey2 = "1092a507c481907491fcd43ea457fbd9";
 
   //function to take city name input and populate city name & city-based restaurant and event recommendations 
-  $(".button").on("click", function currentCity() {
+  $(".search-button").on("click", function currentCity() {
     event.preventDefault();
-    searchInput = $(".input").val();
+    getEvents(page);
+    searchInput = $(".search-input").val();
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
 
     // let corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
@@ -869,7 +870,7 @@ $(document).ready(function () {
         "x-requested-with": "xhr"
       },
     }).then(function (data) {
-        console.log()
+        console.log(data)
       let cityID = data.location_suggestions[0].id;
       let cityName = data.location_suggestions[0].name;
       console.log("city ID from API? ", cityID);
@@ -883,7 +884,7 @@ $(document).ready(function () {
       let strCityInfo = JSON.stringify(cityInfo);
       localStorage.setItem('cityInfo', strCityInfo)
 
-      // restaurantRecs(cityID);
+      restaurantRecs(cityID);
     }).catch(function (err) {
       console.log("ERR FOR AJAX CALL", err)
     })
@@ -909,7 +910,7 @@ $(document).ready(function () {
     $("#cuisine-choice").text($(this).text())
     cuisineSelected = $(this).text()
     $('.dropdown').removeClass('is-active');
-
+    $(".box").empty();
 
       let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
       restaurantRecs(parseCityInfo.cityId)
@@ -938,26 +939,8 @@ $(document).ready(function () {
             },
           }).then(function (data) {
             console.log("recommendation data!!!!", data);
-            // for (let i = 0; i < data.restaurants.length; i++) {
-                // let restaurantDetails = {
-                //     restaurantName: data.restaurants[i].restaurant.name,
-                //     establishment: data.restaurants[i].restaurant.establishment, 
-                //     cuisine: data.restaurants[i].restaurant.cuisines,
-                //     rating: data.restaurants[i].restaurant.user_rating, 	
-                //     restaurantURL: data.restaurants[i].restaurant.url,
-                //     phoneNumber: data.restaurants[i].restaurant.phone_numbers,
-                //     location: data.restaurants[i].restaurant.location.address,
-                //     hoursOfOperation: data.restaurants[i].restaurant.timings 
-                // } 
-                // let restaurantName = data.restaurants[i].restaurant.name;
-                // let establishment = data.restaurants[i].restaurant.establishment; 
-                // let cuisine = data.restaurants[i].restaurant.cuisines;
-                // let rating = data.restaurants[i].restaurant.user_rating; 	
-                // let restURL = data.restaurants[i].restaurant.url;
-                // let phoneNumber = data.restaurants[i].restaurant.phone_numbers;
-                // let location = data.restaurants[i].restaurant.location.address;
-                // let hoursOfOperation = data.restaurants[i].restaurant.timings;
                 
+                let restaurantName = $("<div>").addClass("restName");    
                 let restaurantEstab = $("<div>").addClass("restEstab");
                 let restaurantCuisine = $("<div>").addClass("restCuisine");
                 let restaurantRating = $("<div>").addClass("restRating");
@@ -966,6 +949,7 @@ $(document).ready(function () {
                 let restaurantAddress = $("<div>").addClass("restAddress");
                 let restaurantHours = $("<div>").addClass("restHours");
 
+                restaurantName.text(data.restaurants[0].restaurant.name)
                 restaurantEstab.text(data.restaurants[0].restaurant.establishment)
                 restaurantCuisine.text(data.restaurants[0].restaurant.cuisines)
                 restaurantRating.text(data.restaurants[0].restaurant.user_rating.aggregate_rating)
@@ -974,7 +958,7 @@ $(document).ready(function () {
                 restaurantAddress.text(data.restaurants[0].restaurant.location.address)
                 restaurantHours.text(data.restaurants[0].restaurant.timings)
                 
-                $("#restOneTitle").text(data.restaurants[0].restaurant.name)
+                $("#restOneBox").append(restaurantName)
                 $("#restOneBox").append("Establishment Type: ", restaurantEstab)
                 $("#restOneBox").append("Cuisine Type: ", restaurantCuisine)
                 $("#restOneBox").append("Rating: ", restaurantRating)
@@ -983,6 +967,7 @@ $(document).ready(function () {
                 $("#restOneBox").append("Address: ", restaurantAddress)
                 $("#restOneBox").append("Hours of Operation: ", restaurantHours)
 
+                let restaurantName1 = $("<div>").addClass("restName");
                 let restaurantEstab1 = $("<div>").addClass("restEstab");
                 let restaurantCuisine1 = $("<div>").addClass("restCuisine");
                 let restaurantRating1 = $("<div>").addClass("restRating");
@@ -991,6 +976,7 @@ $(document).ready(function () {
                 let restaurantAddress1 = $("<div>").addClass("restAddress");
                 let restaurantHours1 = $("<div>").addClass("restHours");
         
+                restaurantName1.text(data.restaurants[1].restaurant.name)
                 restaurantEstab1.text(data.restaurants[1].restaurant.establishment)
                 restaurantCuisine1.text(data.restaurants[1].restaurant.cuisines)
                 restaurantRating1.text(data.restaurants[1].restaurant.user_rating.aggregate_rating)
@@ -999,7 +985,7 @@ $(document).ready(function () {
                 restaurantAddress1.text(data.restaurants[1].restaurant.location.address)
                 restaurantHours1.text(data.restaurants[1].restaurant.timings)
                 
-                $("#restTwoTitle").text(data.restaurants[1].restaurant.name)
+                $("#restTwoBox").append(restaurantName1)
                 $("#restTwoBox").append("Establishment Type: ", restaurantEstab1)
                 $("#restTwoBox").append("Cuisine Type: ", restaurantCuisine1)
                 $("#restTwoBox").append("Rating: ", restaurantRating1)
@@ -1008,6 +994,7 @@ $(document).ready(function () {
                 $("#restTwoBox").append("Address: ", restaurantAddress1)
                 $("#restTwoBox").append("Hours of Operation: ", restaurantHours1)
     
+                let restaurantName2 = $("<div>").addClass("restName");
                 let restaurantEstab2 = $("<div>").addClass("restEstab");
                 let restaurantCuisine2 = $("<div>").addClass("restCuisine");
                 let restaurantRating2 = $("<div>").addClass("restRating");
@@ -1016,6 +1003,7 @@ $(document).ready(function () {
                 let restaurantAddress2 = $("<div>").addClass("restAddress");
                 let restaurantHours2 = $("<div>").addClass("restHours");
         
+                restaurantName2.text(data.restaurants[2].restaurant.name)
                 restaurantEstab2.text(data.restaurants[2].restaurant.establishment)
                 restaurantCuisine2.text(data.restaurants[2].restaurant.cuisines)
                 restaurantRating2.text(data.restaurants[2].restaurant.user_rating.aggregate_rating)
@@ -1024,7 +1012,7 @@ $(document).ready(function () {
                 restaurantAddress2.text(data.restaurants[2].restaurant.location.address)
                 restaurantHours2.text(data.restaurants[2].restaurant.timings)
                 
-                $("#restThreeTitle").text(data.restaurants[2].restaurant.name)
+                $("#restThreeBox").append(restaurantName2)
                 $("#restThreeBox").append("Establishment Type: ", restaurantEstab2)
                 $("#restThreeBox").append("Cuisine Type: ", restaurantCuisine2)
                 $("#restThreeBox").append("Rating: ", restaurantRating2)
@@ -1033,6 +1021,7 @@ $(document).ready(function () {
                 $("#restThreeBox").append("Address: ", restaurantAddress2)
                 $("#rrestThreeBox").append("Hours of Operation: ", restaurantHours2)
 
+                let restaurantName3 = $("<div>").addClass("restName");
                 let restaurantEstab3 = $("<div>").addClass("restEstab");
                 let restaurantCuisine3 = $("<div>").addClass("restCuisine");
                 let restaurantRating3 = $("<div>").addClass("restRating");
@@ -1041,6 +1030,7 @@ $(document).ready(function () {
                 let restaurantAddress3 = $("<div>").addClass("restAddress");
                 let restaurantHours3 = $("<div>").addClass("restHours");
         
+                restaurantName3.text(data.restaurants[3].restaurant.name)
                 restaurantEstab3.text(data.restaurants[3].restaurant.establishment)
                 restaurantCuisine3.text(data.restaurants[3].restaurant.cuisines)
                 restaurantRating3.text(data.restaurants[3].restaurant.user_rating.aggregate_rating)
@@ -1049,7 +1039,7 @@ $(document).ready(function () {
                 restaurantAddress3.text(data.restaurants[3].restaurant.location.address)
                 restaurantHours3.text(data.restaurants[3].restaurant.timings)
                 
-                $("#restFourTitle").text(data.restaurants[3].restaurant.name)
+                $("#restFourBox").append(restaurantName3)
                 $("#restFourBox").append("Establishment Type: ", restaurantEstab3)
                 $("#restFourBox").append("Cuisine Type: ", restaurantCuisine3)
                 $("#restFourBox").append("Rating: ", restaurantRating3)
@@ -1057,12 +1047,12 @@ $(document).ready(function () {
                 $("#restFourBox").append("Phone Number: ", restaurantPhone3)
                 $("#restFourBox").append("Address: ", restaurantAddress3)
                 $("#restFourBox").append("Hours of Operation: ", restaurantHours3)
-            // } 
+
             });
-    //   console.log("cuisineID?", cuisineID, 'and this is city id to search', cityId)
 
 };
 
+//events function start
   var page = 0;
 
   function getEvents(page) {
@@ -1082,7 +1072,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "GET",
-      url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=Austin&size=4&page=" + page,
+      url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=" + searchInput + "&size=4&page=" + page,
       async: true,
       dataType: "json",
       success: function (json) {
@@ -1133,7 +1123,7 @@ $(document).ready(function () {
   function getAttraction(id) {
     $.ajax({
       type: "GET",
-      url: "https://app.ticketmaster.com/discovery/v2/attractions/" + id + ".json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=Austin",
+      url: "https://app.ticketmaster.com/discovery/v2/attractions/" + id + ".json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=" + searchInput,
       async: true,
       dataType: "json",
       success: function (json) {
@@ -1158,7 +1148,7 @@ $(document).ready(function () {
     $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
   }
 
-  getEvents(page);
+ 
 
 
 
