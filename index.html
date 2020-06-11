@@ -1,176 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Springboard</title>
-        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-        <script src="https://kit.fontawesome.com/db5e26bbb4.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./assets/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    </head>
-    <body>
 
-        <!--the rest of the body will have to be rolled into a div so we can set its class to display none when the model is active--> 
-        <div class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-                <!-----Search Bar------>
-                <div class="block">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Springboard</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/db5e26bbb4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <!--the rest of the body will have to be rolled into a div so we can set its class to display none when the model is active-->
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <!-----Search Bar------>
+            <div class="block">
+                <div class="field has-addons">
+                    <p class="control has-icons-left" id="homeBar">
+                        <input class="input is-rounded" type="input" placeholder="Pick a City...">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-city"></i>
+                        </span>
+                    </p>
+                    <p class="control" id="homeBarBtn">
+                        <a href="" class="button is-info is-danger is-rounded">Explore</a>
+                    </p>
+                </div>
+            </div>
+            <!-- Any other Bulma elements you want -->
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+
+
+
+
+
+
+    <!--Navigation Bar-->
+    <div class="block" id="navbarBlock">
+        <nav class="navbar is-danger" role="navigation" aria-label="main navigation" id="navbar">
+            <div class="navbar-brand">
+                <a class="navbar-item" id="navbarLogo" href="index.html">
+                    <h1 class="title is-4" id="springLogo"><strong>Springboard</strong></h1>
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" id="logoBtn">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
+                <div class="navbar-end">
                     <div class="field has-addons">
-                        <p class="control has-icons-left" id="homeBar">
-                            <input class="input is-rounded" type="input" placeholder="Pick a City...">
+                        <p class="control has-icons-left" id="navBarSearch">
+                            <input class="input search-input is-small is-rounded" type="text"
+                                placeholder="Pick a City...">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-city"></i>
                             </span>
                         </p>
-                        <p class="control" id="homeBarBtn">
-                            <a href="" class="button is-info is-danger is-rounded">Explore</a>
+                        <p class="control">
+                            <a href="" class="button search-button is-small is-rounded">Explore</a>
                         </p>
                     </div>
-                </div>
-              <!-- Any other Bulma elements you want -->
-            </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-          </div>    
-
-
-
-
-
-
-
-        <!--Navigation Bar-->
-        <div class="block" id="navbarBlock">
-            <nav class="navbar is-danger" role="navigation" aria-label="main navigation" id="navbar">
-                <div class="navbar-brand">
-                    <a class="navbar-item" id="navbarLogo" href="index.html">
-                        <h1 class="title is-4" id="springLogo"><strong>Springboard</strong></h1>
+                    <a class="navbar-item" href="index.html" id="homeBtn">
+                        <span class="icon">
+                            <!--Each Icon will navigate the user to the corresponding page-->
+                            <i class="fas fa-home"></i>
+                        </span>
                     </a>
-        
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" id="logoBtn">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
+                    <a class="navbar-item" href="restaurants.html" id="eatBtn">
+                        <span class="icon">
+                            <!--Each Icon will navigate the user to the corresponding page-->
+                            <i class="fas fa-utensils"></i>
+                        </span>
+                    </a>
+                    <a class="navbar-item" href="events.html" id="eventBtn">
+                        <span class="icon">
+                            <!--Each Icon will navigate the user to the corresponding page-->
+                            <i class="fas fa-ticket-alt"></i>
+                        </span>
+                    </a>
+                    <a class="navbar-item" href="weather.html" id="weatherBtn">
+                        <span class="icon">
+                            <!--Each Icon will navigate the user to the corresponding page-->
+                            <i class="fas fa-cloud"></i>
+                        </span>
                     </a>
                 </div>
-        
-                <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
-                    <div class="navbar-end">
-                        <div class="field has-addons">
-                            <p class="control has-icons-left" id="navBarSearch">
-                                <input class="input search-input is-small is-rounded" type="text" placeholder="Pick a City...">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-city"></i>
-                                </span>
-                            </p>
-                            <p class="control">
-                                <a href="" class="button search-button is-small is-rounded">Explore</a>
-                            </p>
-                        </div>
-                        <a class="navbar-item" href="index.html" id="homeBtn">
-                            <span class="icon">
-                                <!--Each Icon will navigate the user to the corresponding page-->
-                                <i class="fas fa-home"></i>
-                            </span>
-                        </a>
-                        <a class="navbar-item" href="restaurants.html" id="eatBtn">
-                            <span class="icon">
-                                <!--Each Icon will navigate the user to the corresponding page-->
-                                <i class="fas fa-utensils"></i>
-                            </span>
-                        </a>
-                        <a class="navbar-item" href="events.html" id="eventBtn">
-                            <span class="icon">
-                                <!--Each Icon will navigate the user to the corresponding page-->
-                                <i class="fas fa-ticket-alt"></i>
-                            </span>
-                        </a>
-                        <a class="navbar-item" href="weather.html" id="weatherBtn">
-                            <span class="icon">
-                                <!--Each Icon will navigate the user to the corresponding page-->
-                                <i class="fas fa-cloud"></i>
-                            </span>
-                        </a>
-                    </div>
-            </nav>
-        </div>
+        </nav>
+    </div>
     <!-----------  Webpage body content --------->
-        <section class="section">
-            
-            <h1 class="title is-1" id="homeTitle">What City Are You Exploring?</h1>
-            <!-----Search Bar------>
-            <div class="block">
-                    <div class="field has-addons">
-                            <p class="control has-icons-left" id="homeBar">
-                                <input class="input search-input is-rounded" type="input" placeholder="Pick a City...">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-city"></i>
-                                </span>
-                            </p>
-                            <p class="control" id="homeBarBtn">
-                                <a href="" class="button search-button is-info is-danger is-rounded">Explore</a>
-                            </p>
-                    </div>
+    <section class="section">
+
+        <h1 class="title is-1" id="homeTitle">What City Are You Exploring?</h1>
+        <!-----Search Bar------>
+        <div class="block">
+            <div class="field has-addons">
+                <p class="control has-icons-left" id="homeBar">
+                    <input class="input search-input is-rounded" type="text" placeholder="Pick a City...">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-city"></i>
+                    </span>
+                </p>
+                <p class="control" id="homeBarBtn">
+                    <a href="" class="button search-button is-info is-danger is-rounded">Explore</a>
+                </p>
+            </div>
+        </div>
+
+        <!--JQuery will manipulate the DOM to display the inputted city from the search bar-->
+        <h1 class="title is-3" id="cityTitle"></h1>
+
+        <!-- JQuery will manipulate the DOM to display these cards after the city is inputted by the user-->
+
+        <div class="container" id="navCardContainer">
+            <div class="restaurant_container" id="optionOne">
+                <a class="restaurant-page" href="restaurants.html" id="restaurant-link">
+                    <h2 class="title is-4" id="optionOneTitle">Restaurants</h2>
+                    <img src="./assets/restaurant_homepage.jpeg" alt="Restaurants homepage" class="hp_restaurant"
+                        style="width: 300px; height: 250px;">
+                </a>
             </div>
 
-            <!--JQuery will manipulate the DOM to display the inputted city from the search bar-->
-            <h1 class="title is-3" id="cityTitle"></h1>
-
-            <!-- JQuery will manipulate the DOM to display these cards after the city is inputted by the user-->
-            
-            <div class="container" id="navCardContainer">
-                <div class="restaurant_container" id="optionOne">
-                    <a class="restaurant-page" href="restaurants.html" id="restaurant-link">
-                        <h2 class="title is-4" id="optionOneTitle">Restaurants</h2> 
-                        <img 
-                        src="./assets/restaurant_homepage.jpeg" alt="Restaurants homepage" 
-                        class="hp_restaurant" 
-                        style="width: 300px; height: 250px;">  
-                    </a>
-                </div>
-
-                <div class="events_container" id="optionTwo">
-                    <a class="events-page" href="events.html" id="events-link">
-                        <h2 class="title is-4" id="optionTwoTitle">Events</h2> 
-                        <img 
-                        src="./assets/events_homepage.jpg" 
-                        alt="Events homepage" 
-                        class="hp_event" 
+            <div class="events_container" id="optionTwo">
+                <a class="events-page" href="events.html" id="events-link">
+                    <h2 class="title is-4" id="optionTwoTitle">Events</h2>
+                    <img src="./assets/events_homepage.jpg" alt="Events homepage" class="hp_event"
                         style="width: 300px; height: 250px;">
-                    </a>  
-                </div>
-
-                <div class="weather_container" id="optionThree">
-                    <a class="weather-page" href="weather.html" id="weather-link">
-                        <h2 class="title is-4" id="optionThreeTitle">Weather</h2> 
-                        <img 
-                        src="./assets/weather_homepage.jpeg" 
-                        alt="Weather homepage" 
-                        class="hp_weather" 
-                        style="width: 300px; height: 250px;">
-                    </a>  
-                </div>
+                </a>
             </div>
-            
+
+            <div class="weather_container" id="optionThree">
+                <a class="weather-page" href="weather.html" id="weather-link">
+                    <h2 class="title is-4" id="optionThreeTitle">Weather</h2>
+                    <img src="./assets/weather_homepage.jpeg" alt="Weather homepage" class="hp_weather"
+                        style="width: 300px; height: 250px;">
+                </a>
+            </div>
+        </div>
+
     </section>
 
     <!---------  Removed Footer    -------->
-    
-  </body>
 
-  <!--Javascript/JQuery Link-->
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-    crossorigin="anonymous"
-  ></script>
-  <script src="https://bulma.io/vendor/clipboard-1.7.1.min.js"></script>
-  <script src="https://bulma.io/vendor/js.cookie-2.1.4.min.js"></script>
-  <script src="https://bulma.io/vendor/native.js"></script>
-  <script src="./assets/springboard.js"></script>
+</body>
+
+<!--Javascript/JQuery Link-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://bulma.io/vendor/clipboard-1.7.1.min.js"></script>
+<script src="https://bulma.io/vendor/js.cookie-2.1.4.min.js"></script>
+<script src="https://bulma.io/vendor/native.js"></script>
+<script src="./assets/springboard.js"></script>
+
 </html>

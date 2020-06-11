@@ -867,11 +867,19 @@ $(document).ready(function () {
 
   $(".search-button").on("click", function currentCity() {
     event.preventDefault();
-    searchInput = $(".search-input").val();
+    console.log(event);
+    searchInput = event.target.parentElement.parentElement.children[0].children[0].value;
+    console.log(searchInput);
+    // if ($(".search-input")[0].value === '') {
+    /*  searchInput = (".search-input")[1].value; event.target.parentElement.parentElement.children[0].children[0].value;
+   } else {
+     searchInput = (".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
+   } */
+    //we also need to check differences 
     getEvents(page);
 
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
-
+    console.log(citiesURL);
 
     // let corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
 
@@ -1076,9 +1084,19 @@ $(document).ready(function () {
 
   //events function start
   var page = 0;
+  var localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+  var eventCity = localStorageCityInfo.name;
+  // var fileName = location.href.split("/").slice(-1); 
+  //document.currentURL
+  console.log(window.location.href.split("/").slice(-1)[0]);
+  if (window.location.href.split("/").slice(-1)[0] === "events.html") {
+    getEvents(page);
+    console.log("currently on events page");
+  }
 
   function getEvents(page) {
-
+    // let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+    // let eventCity = parseCityInfo.name;
     $('#events-panel').show();
     $('#attraction-panel').hide();
 
@@ -1091,10 +1109,10 @@ $(document).ready(function () {
         page = 0;
       }
     }
-
+    console.log();
     $.ajax({
       type: "GET",
-      url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=" + searchInput + "&size=4&page=" + page,
+      url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=" + eventCity + "&size=4&page=" + page,
       async: true,
       dataType: "json",
       success: function (json) {
@@ -1145,7 +1163,7 @@ $(document).ready(function () {
   function getAttraction(id) {
     $.ajax({
       type: "GET",
-      url: "https://app.ticketmaster.com/discovery/v2/attractions/" + id + ".json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=" + searchInput,
+      url: "https://app.ticketmaster.com/discovery/v2/attractions/" + id + ".json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=" + eventCity,
       async: true,
       dataType: "json",
       success: function (json) {
