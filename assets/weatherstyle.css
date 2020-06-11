@@ -1,21 +1,20 @@
-.section .title{
-    text-align: center;
-    margin-top: -35px;
-
+.section .title {
+  text-align: center;
+  margin-top: -35px;
 }
 
-.topdiv{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 30px;
-    padding-top: 10px;
+.topdiv {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-top: 10px;
 }
 
-.container{
-    align-self: center;
-    max-width: fit-content;
-    justify-self: center;
+.container {
+  align-self: center;
+  max-width: fit-content;
+  justify-self: center;
 }
 
 /* Logo (Top Left) */
@@ -34,23 +33,15 @@
   width: 7rem;
 }
 
-#search {
-  background-color: black;
-}
-
 label {
   color: white;
 }
 
 #weather {
-  border: solid 1px black;
-  background-color: #0fbff0;
-  opacity: 0.85em;
+  color: black;
   height: 725px;
-  width: 1400px;
+  width: 1200px;
   margin: auto;
-  border-radius: 2em 2em 2em 2em;
-  margin-top: 10px;
   padding: 20px 45px;
 }
 
@@ -59,21 +50,23 @@ label {
 #humid,
 #wind {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding-left: 0px;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 
 #date {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding-left: 0px;
   margin-top: 10px;
 }
 
 #forecast {
-  margin-top: 50px;
-  margin-bottom: 5px;
+  margin-top: 17px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 #weather-button {
@@ -109,26 +102,15 @@ label {
 #dayFour,
 #dayFive {
   border: 2px solid black;
-  background-color: #0ae706;
-  border-radius: 0em 0em 2em 2em;
+  background-color: #ff3860;
+  border-radius: 2em 2em 2em 2em;
+  color: #ffffff;
 }
 
-#savedCity {
-  display: flex;
-  justify-content: flex-end;
-}
-
-#cityOne,
-#cityTwo,
-#cityThree,
-#cityFour,
-#cityFive,
-#citySix,
-#citySeven,
-#cityEight,
-#cityNine,
-#cityTen {
-  border: 1px solid black;
-  width: 100px;
-  background-color: #0ae706;
+#todayWeather {
+  border: 2px solid black;
+  background-color: #ff3860;
+  border-radius: 2em 2em 2em 2em;
+  color: black;
+  width: 300px;
 }
