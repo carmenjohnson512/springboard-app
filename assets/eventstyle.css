@@ -28,6 +28,16 @@
 
 }
 
+.row{
+  justify-content: center;
+}
+
+.pager {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 
 
 /* 
@@ -69,8 +79,8 @@
 
 /* nav bar search bar*/
 .field:not(:last-child) {
-  margin-bottom: 1.25rem;
-  margin-top: 1.25rem;
+  margin-bottom: 0rem;
+  margin-top: 1rem;
   margin-right: 1rem;
 }
 
@@ -78,6 +88,3 @@
   width: 7rem;
 }
 
-.container{
-  
-}

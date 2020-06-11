@@ -29,8 +29,8 @@
 
 /* nav bar search bar*/
 .field:not(:last-child) {
-  margin-bottom: 1.25rem;
-  margin-top: 1.25rem;
+  margin-bottom: 0rem;
+  margin-top: 1rem;
   margin-right: 1rem;
 }
 
@@ -40,4 +40,19 @@
 
 #navBarSearch {
   width: 7rem;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+   
+    
+  }
+
 }

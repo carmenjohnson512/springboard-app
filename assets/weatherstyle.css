@@ -1,21 +1,20 @@
-.section .title{
-    text-align: center;
-    margin-top: -35px;
-
+.section .title {
+  text-align: center;
+  margin-top: -35px;
 }
 
-.topdiv{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-bottom: 30px;
-    padding-top: 10px;
+.topdiv {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-top: 10px;
 }
 
-.container{
-    align-self: center;
-    max-width: fit-content;
-    justify-self: center;
+.container {
+  align-self: center;
+  max-width: fit-content;
+  justify-self: center;
 }
 
 /* Logo (Top Left) */
@@ -25,11 +24,93 @@
 
 /* nav bar search bar*/
 .field:not(:last-child) {
-  margin-bottom: 1.25rem;
-  margin-top: 1.25rem;
+  margin-bottom: 0rem;
+  margin-top: 1rem;
   margin-right: 1rem;
 }
 
 #navBarSearch {
   width: 7rem;
+}
+
+label {
+  color: white;
+}
+
+#weather {
+  color: black;
+  height: 725px;
+  width: 1200px;
+  margin: auto;
+  padding: 20px 45px;
+}
+
+#city,
+#temp,
+#humid,
+#wind {
+  display: flex;
+  justify-content: center;
+  padding-left: 0px;
+  margin-top: 25px;
+}
+
+#date {
+  display: flex;
+  justify-content: center;
+  padding-left: 0px;
+  margin-top: 10px;
+}
+
+#forecast {
+  margin-top: 17px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#weather-button {
+  border-radius: 1em 1em 1em 1em;
+  color: black;
+  font-weight: bold;
+  background-color: #0ae706;
+  border: 2px solid black;
+  margin-left: 4px;
+}
+
+#weather-input {
+  border: 3px solid black;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+label {
+  font-weight: bold;
+  margin-left: 6px;
+  font-size: 35px;
+}
+
+#fiveDayForecast {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0px;
+}
+
+#dayOne,
+#dayTwo,
+#dayThree,
+#dayFour,
+#dayFive {
+  border: 2px solid black;
+  background-color: #ff3860;
+  border-radius: 2em 2em 2em 2em;
+  color: #ffffff;
+}
+
+#todayWeather {
+  border: 2px solid black;
+  background-color: #ff3860;
+  border-radius: 2em 2em 2em 2em;
+  color: black;
+  width: 300px;
 }

@@ -8,13 +8,18 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/db5e26bbb4.js" crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
-        integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/eventstyle.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <!-- Latest compiled and minified CSS -->
+    <!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+    <!-- Optional theme -->
+    <!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+        integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="./assets/eventstyle.css"> -->
 
     <!--Samir, feel free to change this path. I know you planned to use different CSS filed for each HTML!-->
 </head>
@@ -27,14 +32,14 @@
                 <a class="navbar-item" id="navbarLogo" href="index.html">
                     <h1 class="title is-4" id="springLogo"><strong>Springboard</strong></h1>
                 </a>
-    
+
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" id="logoBtn">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-    
+
             <div id="navbarBasicExample" class="navbar-menu" id="navBtns">
                 <div class="navbar-end">
                     <div class="field has-addons">
@@ -97,7 +102,7 @@
         <div class="row">
             <div class="col-xs-1"></div>
             <div class="col-xs-6 col-md-10">
-                <div id='events-panel' class="panel" style="background-color: #f14668;" >
+                <div id='events-panel' class="panel" style="background-color: #f14668;">
                     <div class="panel-heading" style="background-color: #f14668;">
                         <h3 class="panel-title">Events</h3>
                     </div>
@@ -105,9 +110,7 @@
                         <div id="events" class="list-group">
                             <a href="#" class="list-group-item">
                                 <h4 class="list-group-item-heading">Event title</h4>
-                                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <p class="list-group-item-text">Event Details</p>
                                 <p class="venue"></p>
                             </a>
                             <a href="#" class="list-group-item">
@@ -133,12 +136,14 @@
                             </a>
                         </div>
                     </div>
-                    <div class="panel-footer has-background-black">
+                    <div class="panel-footer">
                         <nav>
                             <ul class="pager">
-                                <li id="prev" class="previous"><a href="#"><span aria-hidden="true">&larr;</span></a>
+                                <li id="prev" class="previous button is-danger"><span
+                                        aria-hidden="true">Previous</span></a>
                                 </li>
-                                <li id="next" class="next"><a href="#"><span aria-hidden="true">&rarr;</span></a></li>
+                                <li id="next" class="next button is-danger"><span aria-hidden="true">Next</span></a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -152,6 +157,9 @@
                         <h4 class="list-group-item-heading">Attraction title</h4>
                         <img class="col-xs-12" src="">
                         <p id="classification"></p>
+                        <button class="button">Back</button>
+                        <br>
+                        <button class="button is-dark">Buy Tickets</button>
                     </div>
                 </div>
             </div>
@@ -283,12 +291,18 @@
 
     <!--Removed Footer-->
 
+    <!--Javascript/JQuery Link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <script src="./assets/springboard.js"></script>
+
 </body>
 
 <!--Javascript/JQuery Link-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-<script src="./assets/springboard.js"></script>
+<script src="./assets/springboard.js"></script> -->
 
 </html>
