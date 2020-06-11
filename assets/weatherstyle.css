@@ -25,11 +25,110 @@
 
 /* nav bar search bar*/
 .field:not(:last-child) {
-  margin-bottom: 1.25rem;
-  margin-top: 1.25rem;
+  margin-bottom: 0rem;
+  margin-top: 1rem;
   margin-right: 1rem;
 }
 
 #navBarSearch {
   width: 7rem;
+}
+
+#search {
+  background-color: black;
+}
+
+label {
+  color: white;
+}
+
+#weather {
+  border: solid 1px black;
+  background-color: #0fbff0;
+  opacity: 0.85em;
+  height: 725px;
+  width: 1400px;
+  margin: auto;
+  border-radius: 2em 2em 2em 2em;
+  margin-top: 10px;
+  padding: 20px 45px;
+}
+
+#city,
+#temp,
+#humid,
+#wind {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0px;
+  margin-top: 30px;
+}
+
+#date {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0px;
+  margin-top: 10px;
+}
+
+#forecast {
+  margin-top: 50px;
+  margin-bottom: 5px;
+}
+
+#weather-button {
+  border-radius: 1em 1em 1em 1em;
+  color: black;
+  font-weight: bold;
+  background-color: #0ae706;
+  border: 2px solid black;
+  margin-left: 4px;
+}
+
+#weather-input {
+  border: 3px solid black;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+label {
+  font-weight: bold;
+  margin-left: 6px;
+  font-size: 35px;
+}
+
+#fiveDayForecast {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0px;
+}
+
+#dayOne,
+#dayTwo,
+#dayThree,
+#dayFour,
+#dayFive {
+  border: 2px solid black;
+  background-color: #0ae706;
+  border-radius: 0em 0em 2em 2em;
+}
+
+#savedCity {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#cityOne,
+#cityTwo,
+#cityThree,
+#cityFour,
+#cityFive,
+#citySix,
+#citySeven,
+#cityEight,
+#cityNine,
+#cityTen {
+  border: 1px solid black;
+  width: 100px;
+  background-color: #0ae706;
 }
