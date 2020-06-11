@@ -1293,6 +1293,7 @@ $("#weather-button").on("click", function (event) {
         `Wind Speed: ${response.wind.speed} MPH`
       );
 
+
       // Moment.js
       let foreCast = $("<h2>").text("5-Day Forecast");
 
@@ -1360,6 +1361,8 @@ $("#weather-button").on("click", function (event) {
 
       let forecastWeather1 = $("<p>").text(response.list[3].weather[0].main);
 
+      let icon1 = $("<p>").text(response.list[3].weather[0].icon);
+
       // Day 2
       let forecastMaxTemp2 = $("<p>").text(
         "High: " +
@@ -1386,6 +1389,8 @@ $("#weather-button").on("click", function (event) {
       );
 
       let forecastWeather2 = $("<p>").text(response.list[11].weather[0].main);
+
+      let icon2 = $("<p>").text(response.list[11].weather[0].icon);
 
       // Day 3
       let forecastMaxTemp3 = $("<p>").text(
@@ -1414,6 +1419,8 @@ $("#weather-button").on("click", function (event) {
 
       let forecastWeather3 = $("<p>").text(response.list[19].weather[0].main);
 
+      let icon3 = $("<p>").text(response.list[19].weather[0].icon);
+
       // Day 4
       let forecastMaxTemp4 = $("<p>").text(
         "High: " +
@@ -1440,6 +1447,8 @@ $("#weather-button").on("click", function (event) {
       );
 
       let forecastWeather4 = $("<p>").text(response.list[27].weather[0].main);
+
+      let icon4 = $("<p>").text(response.list[27].weather[0].icon);
 
       // Day 5
       let forecastMaxTemp5 = $("<p>").text(
@@ -1468,32 +1477,39 @@ $("#weather-button").on("click", function (event) {
 
       let forecastWeather5 = $("<p>").text(response.list[35].weather[0].main);
 
+      let icon5 = $("<p>").text(response.list[35].weather[0].icon);
+
       const forecastObj = {
         dayOneMax: forecastMaxTemp1,
         dayOneMin: forecastMinTemp1,
         dayOneHumidity: forecastHumidity1,
         dayOneWind: forecastWind1,
         dayOneWeather: forecastWeather1,
+        // dayOneIcon: icon1,
         dayTwoMax: forecastMaxTemp2,
         dayTwoMin: forecastMinTemp2,
         dayTwoHumidity: forecastHumidity2,
         dayTwoWind: forecastWind2,
         dayTwoWeather: forecastWeather2,
+        // dayTwoIcon: icon2,
         dayThreeMax: forecastMaxTemp3,
         dayThreeMin: forecastMinTemp3,
         dayThreeHumidity: forecastHumidity3,
         dayThreeWind: forecastWind3,
         dayThreeWeather: forecastWeather3,
+        // dayThreeIcon: icon3,
         dayFourMax: forecastMaxTemp4,
         dayFourMin: forecastMinTemp4,
         dayFourHumidity: forecastHumidity4,
         dayFourWind: forecastWind4,
         dayFourWeather: forecastWeather4,
+        // dayFourIcon: icon4,
         dayFiveMax: forecastMaxTemp5,
         dayFiveMin: forecastMinTemp5,
         dayFiveHumidity: forecastHumidity5,
         dayFiveWind: forecastWind5,
         dayFiveWeather: forecastWeather5,
+        // dayFiveIcon: icon5,
       };
 
       clear(Object.keys(forecastObj));
