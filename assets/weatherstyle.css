@@ -103,14 +103,16 @@ label {
 #dayFive {
   border: 2px solid black;
   background-color: #ff3860;
-  border-radius: 2em 2em 2em 2em;
-  color: #ffffff;
+  border-radius: .5em .5em .5em .5em;
+  color: black;
+  box-shadow: 3px 3px rgb(148, 140, 140);
 }
 
 #todayWeather {
   border: 2px solid black;
   background-color: #ff3860;
-  border-radius: 2em 2em 2em 2em;
+  border-radius: .5em .5em .5em .5em;
   color: black;
   width: 300px;
+  box-shadow: 3px 3px rgb(148, 140, 140);
 }
