@@ -28,6 +28,16 @@
 
 }
 
+.row{
+  justify-content: center;
+}
+
+.pager {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 
 
 /* 
@@ -78,6 +88,3 @@
   width: 7rem;
 }
 
-.container{
-  
-}
