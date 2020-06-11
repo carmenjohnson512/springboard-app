@@ -20,14 +20,12 @@
   
 }*/
 
-.topdiv{
+.topdiv {
   display: flex;
   flex-direction: column;
   text-align: center;
   margin-bottom: 30px;
   padding-top: 10px;
- 
-  
 }
 
 .dropdown-item {
@@ -75,8 +73,8 @@
 
 /* nav bar search bar*/
 .field:not(:last-child) {
-  margin-bottom: 1.25rem;
-  margin-top: 1.25rem;
+  margin-bottom: 0rem;
+  margin-top: 1rem;
   margin-right: 1rem;
 }
 
