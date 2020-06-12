@@ -867,10 +867,17 @@ $(document).ready(function () {
 
   $(".search-button").on("click", function currentCity() {
     event.preventDefault();
-    searchInput = $(".search-input").val();
+    console.log(event);
+    console.log(searchInput);
+    // if ($(".search-input")[0].value === '') {
+    /*  searchInput = (".search-input")[1].value; event.target.parentElement.parentElement.children[0].children[0].value;
+   } else {
+     searchInput = (".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
+   } */
+    //we also need to check differences 
+    getEvents(page);
 
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
-
 
     // let corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
 
@@ -887,7 +894,7 @@ $(document).ready(function () {
       },
     }).then(function (data) {
 
-        console.log(data)
+      console.log(data)
 
       let cityID = data.location_suggestions[0].id;
       let cityName = data.location_suggestions[0].name;
@@ -947,137 +954,148 @@ $(document).ready(function () {
     };
 
 
-        let restaurantsURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + cityId + "&entity_type=city&start=0&count=20&cuisines=" + cuisineID + "&sort=rating&order=desc";
-        
-        $.ajax({
-            dataType: "json",
-            url: restaurantsURL,
-            method: "GET",
-            crossDomain: true,
-            async: true,
-            headers: {
-              "user-key": APIKey,
-            },
-          }).then(function (data) {
-            console.log("recommendation data!!!!", data);
-                
-                let restaurantName = $("<div>").addClass("restName");    
-                let restaurantEstab = $("<div>").addClass("restEstab");
-                let restaurantCuisine = $("<div>").addClass("restCuisine");
-                let restaurantRating = $("<div>").addClass("restRating");
-                let restaurantURL = $("<div>").addClass("restURL");
-                let restaurantPhone = $("<div>").addClass("restPhone");
-                let restaurantAddress = $("<div>").addClass("restAddress");
-                let restaurantHours = $("<div>").addClass("restHours");
+    let restaurantsURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + cityId + "&entity_type=city&start=0&count=20&cuisines=" + cuisineID + "&sort=rating&order=desc";
 
-                restaurantName.text(data.restaurants[0].restaurant.name)
-                restaurantEstab.text(data.restaurants[0].restaurant.establishment)
-                restaurantCuisine.text(data.restaurants[0].restaurant.cuisines)
-                restaurantRating.text(data.restaurants[0].restaurant.user_rating.aggregate_rating)
-                restaurantURL.text(data.restaurants[0].restaurant.url)
-                restaurantPhone.text(data.restaurants[0].restaurant.phone_numbers)
-                restaurantAddress.text(data.restaurants[0].restaurant.location.address)
-                restaurantHours.text(data.restaurants[0].restaurant.timings)
-                
-                $("#restOneBox").append(restaurantName)
-                $("#restOneBox").append("Establishment Type: ", restaurantEstab)
-                $("#restOneBox").append("Cuisine Type: ", restaurantCuisine)
-                $("#restOneBox").append("Rating: ", restaurantRating)
-                $("#restOneBox").append("Website: ", restaurantURL)
-                $("#restOneBox").append("Phone Number: ", restaurantPhone)
-                $("#restOneBox").append("Address: ", restaurantAddress)
-                $("#restOneBox").append("Hours of Operation: ", restaurantHours)
+    $.ajax({
+      dataType: "json",
+      url: restaurantsURL,
+      method: "GET",
+      crossDomain: true,
+      async: true,
+      headers: {
+        "user-key": APIKey,
+      },
+    }).then(function (data) {
+      console.log("recommendation data!!!!", data);
 
-                let restaurantName1 = $("<div>").addClass("restName");
-                let restaurantEstab1 = $("<div>").addClass("restEstab");
-                let restaurantCuisine1 = $("<div>").addClass("restCuisine");
-                let restaurantRating1 = $("<div>").addClass("restRating");
-                let restaurantURL1 = $("<div>").addClass("restURL");
-                let restaurantPhone1 = $("<div>").addClass("restPhone");
-                let restaurantAddress1 = $("<div>").addClass("restAddress");
-                let restaurantHours1 = $("<div>").addClass("restHours");
-        
-                restaurantName1.text(data.restaurants[1].restaurant.name)
-                restaurantEstab1.text(data.restaurants[1].restaurant.establishment)
-                restaurantCuisine1.text(data.restaurants[1].restaurant.cuisines)
-                restaurantRating1.text(data.restaurants[1].restaurant.user_rating.aggregate_rating)
-                restaurantURL1.text(data.restaurants[1].restaurant.url)
-                restaurantPhone1.text(data.restaurants[1].restaurant.phone_numbers)
-                restaurantAddress1.text(data.restaurants[1].restaurant.location.address)
-                restaurantHours1.text(data.restaurants[1].restaurant.timings)
-                
-                $("#restTwoBox").append(restaurantName1)
-                $("#restTwoBox").append("Establishment Type: ", restaurantEstab1)
-                $("#restTwoBox").append("Cuisine Type: ", restaurantCuisine1)
-                $("#restTwoBox").append("Rating: ", restaurantRating1)
-                $("#restTwoBox").append("Website: ", restaurantURL1)
-                $("#restTwoBox").append("Phone Number: ", restaurantPhone1)
-                $("#restTwoBox").append("Address: ", restaurantAddress1)
-                $("#restTwoBox").append("Hours of Operation: ", restaurantHours1)
-    
-                let restaurantName2 = $("<div>").addClass("restName");
-                let restaurantEstab2 = $("<div>").addClass("restEstab");
-                let restaurantCuisine2 = $("<div>").addClass("restCuisine");
-                let restaurantRating2 = $("<div>").addClass("restRating");
-                let restaurantURL2 = $("<div>").addClass("restURL");
-                let restaurantPhone2 = $("<div>").addClass("restPhone");
-                let restaurantAddress2 = $("<div>").addClass("restAddress");
-                let restaurantHours2 = $("<div>").addClass("restHours");
-        
-                restaurantName2.text(data.restaurants[2].restaurant.name)
-                restaurantEstab2.text(data.restaurants[2].restaurant.establishment)
-                restaurantCuisine2.text(data.restaurants[2].restaurant.cuisines)
-                restaurantRating2.text(data.restaurants[2].restaurant.user_rating.aggregate_rating)
-                restaurantURL2.text(data.restaurants[2].restaurant.url)
-                restaurantPhone2.text(data.restaurants[2].restaurant.phone_numbers)
-                restaurantAddress2.text(data.restaurants[2].restaurant.location.address)
-                restaurantHours2.text(data.restaurants[2].restaurant.timings)
-                
-                $("#restThreeBox").append(restaurantName2)
-                $("#restThreeBox").append("Establishment Type: ", restaurantEstab2)
-                $("#restThreeBox").append("Cuisine Type: ", restaurantCuisine2)
-                $("#restThreeBox").append("Rating: ", restaurantRating2)
-                $("#restThreeBox").append("Website: ", restaurantURL2)
-                $("#restThreeBox").append("Phone Number: ", restaurantPhone2)
-                $("#restThreeBox").append("Address: ", restaurantAddress2)
-                $("#rrestThreeBox").append("Hours of Operation: ", restaurantHours2)
+      let restaurantName = $("<div>").addClass("restName");
+      let restaurantEstab = $("<div>").addClass("restEstab");
+      let restaurantCuisine = $("<div>").addClass("restCuisine");
+      let restaurantRating = $("<div>").addClass("restRating");
+      let restaurantURL = $("<div>").addClass("restURL");
+      let restaurantPhone = $("<div>").addClass("restPhone");
+      let restaurantAddress = $("<div>").addClass("restAddress");
+      let restaurantHours = $("<div>").addClass("restHours");
 
-                let restaurantName3 = $("<div>").addClass("restName");
-                let restaurantEstab3 = $("<div>").addClass("restEstab");
-                let restaurantCuisine3 = $("<div>").addClass("restCuisine");
-                let restaurantRating3 = $("<div>").addClass("restRating");
-                let restaurantURL3 = $("<div>").addClass("restURL");
-                let restaurantPhone3 = $("<div>").addClass("restPhone");
-                let restaurantAddress3 = $("<div>").addClass("restAddress");
-                let restaurantHours3 = $("<div>").addClass("restHours");
-        
-                restaurantName3.text(data.restaurants[3].restaurant.name)
-                restaurantEstab3.text(data.restaurants[3].restaurant.establishment)
-                restaurantCuisine3.text(data.restaurants[3].restaurant.cuisines)
-                restaurantRating3.text(data.restaurants[3].restaurant.user_rating.aggregate_rating)
-                restaurantURL3.text(data.restaurants[3].restaurant.url)
-                restaurantPhone3.text(data.restaurants[3].restaurant.phone_numbers)
-                restaurantAddress3.text(data.restaurants[3].restaurant.location.address)
-                restaurantHours3.text(data.restaurants[3].restaurant.timings)
-                
-                $("#restFourBox").append(restaurantName3)
-                $("#restFourBox").append("Establishment Type: ", restaurantEstab3)
-                $("#restFourBox").append("Cuisine Type: ", restaurantCuisine3)
-                $("#restFourBox").append("Rating: ", restaurantRating3)
-                $("#restFourBox").append("Website: ", restaurantURL3)
-                $("#restFourBox").append("Phone Number: ", restaurantPhone3)
-                $("#restFourBox").append("Address: ", restaurantAddress3)
-                $("#restFourBox").append("Hours of Operation: ", restaurantHours3)
+      restaurantName.text(data.restaurants[0].restaurant.name)
+      restaurantEstab.text(data.restaurants[0].restaurant.establishment)
+      restaurantCuisine.text(data.restaurants[0].restaurant.cuisines)
+      restaurantRating.text(data.restaurants[0].restaurant.user_rating.aggregate_rating)
+      restaurantURL.text(data.restaurants[0].restaurant.url)
+      restaurantPhone.text(data.restaurants[0].restaurant.phone_numbers)
+      restaurantAddress.text(data.restaurants[0].restaurant.location.address)
+      restaurantHours.text(data.restaurants[0].restaurant.timings)
 
-            });
+      $("#restOneBox").append(restaurantName)
+      $("#restOneBox").append("Establishment Type: ", restaurantEstab)
+      $("#restOneBox").append("Cuisine Type: ", restaurantCuisine)
+      $("#restOneBox").append("Rating: ", restaurantRating)
+      $("#restOneBox").append("Website: ", restaurantURL)
+      $("#restOneBox").append("Phone Number: ", restaurantPhone)
+      $("#restOneBox").append("Address: ", restaurantAddress)
+      $("#restOneBox").append("Hours of Operation: ", restaurantHours)
+
+      let restaurantName1 = $("<div>").addClass("restName");
+      let restaurantEstab1 = $("<div>").addClass("restEstab");
+      let restaurantCuisine1 = $("<div>").addClass("restCuisine");
+      let restaurantRating1 = $("<div>").addClass("restRating");
+      let restaurantURL1 = $("<div>").addClass("restURL");
+      let restaurantPhone1 = $("<div>").addClass("restPhone");
+      let restaurantAddress1 = $("<div>").addClass("restAddress");
+      let restaurantHours1 = $("<div>").addClass("restHours");
+
+      restaurantName1.text(data.restaurants[1].restaurant.name)
+      restaurantEstab1.text(data.restaurants[1].restaurant.establishment)
+      restaurantCuisine1.text(data.restaurants[1].restaurant.cuisines)
+      restaurantRating1.text(data.restaurants[1].restaurant.user_rating.aggregate_rating)
+      restaurantURL1.text(data.restaurants[1].restaurant.url)
+      restaurantPhone1.text(data.restaurants[1].restaurant.phone_numbers)
+      restaurantAddress1.text(data.restaurants[1].restaurant.location.address)
+      restaurantHours1.text(data.restaurants[1].restaurant.timings)
+
+      $("#restTwoBox").append(restaurantName1)
+      $("#restTwoBox").append("Establishment Type: ", restaurantEstab1)
+      $("#restTwoBox").append("Cuisine Type: ", restaurantCuisine1)
+      $("#restTwoBox").append("Rating: ", restaurantRating1)
+      $("#restTwoBox").append("Website: ", restaurantURL1)
+      $("#restTwoBox").append("Phone Number: ", restaurantPhone1)
+      $("#restTwoBox").append("Address: ", restaurantAddress1)
+      $("#restTwoBox").append("Hours of Operation: ", restaurantHours1)
+
+      let restaurantName2 = $("<div>").addClass("restName");
+      let restaurantEstab2 = $("<div>").addClass("restEstab");
+      let restaurantCuisine2 = $("<div>").addClass("restCuisine");
+      let restaurantRating2 = $("<div>").addClass("restRating");
+      let restaurantURL2 = $("<div>").addClass("restURL");
+      let restaurantPhone2 = $("<div>").addClass("restPhone");
+      let restaurantAddress2 = $("<div>").addClass("restAddress");
+      let restaurantHours2 = $("<div>").addClass("restHours");
+
+      restaurantName2.text(data.restaurants[2].restaurant.name)
+      restaurantEstab2.text(data.restaurants[2].restaurant.establishment)
+      restaurantCuisine2.text(data.restaurants[2].restaurant.cuisines)
+      restaurantRating2.text(data.restaurants[2].restaurant.user_rating.aggregate_rating)
+      restaurantURL2.text(data.restaurants[2].restaurant.url)
+      restaurantPhone2.text(data.restaurants[2].restaurant.phone_numbers)
+      restaurantAddress2.text(data.restaurants[2].restaurant.location.address)
+      restaurantHours2.text(data.restaurants[2].restaurant.timings)
+
+      $("#restThreeBox").append(restaurantName2)
+      $("#restThreeBox").append("Establishment Type: ", restaurantEstab2)
+      $("#restThreeBox").append("Cuisine Type: ", restaurantCuisine2)
+      $("#restThreeBox").append("Rating: ", restaurantRating2)
+      $("#restThreeBox").append("Website: ", restaurantURL2)
+      $("#restThreeBox").append("Phone Number: ", restaurantPhone2)
+      $("#restThreeBox").append("Address: ", restaurantAddress2)
+      $("#rrestThreeBox").append("Hours of Operation: ", restaurantHours2)
+
+      let restaurantName3 = $("<div>").addClass("restName");
+      let restaurantEstab3 = $("<div>").addClass("restEstab");
+      let restaurantCuisine3 = $("<div>").addClass("restCuisine");
+      let restaurantRating3 = $("<div>").addClass("restRating");
+      let restaurantURL3 = $("<div>").addClass("restURL");
+      let restaurantPhone3 = $("<div>").addClass("restPhone");
+      let restaurantAddress3 = $("<div>").addClass("restAddress");
+      let restaurantHours3 = $("<div>").addClass("restHours");
+
+      restaurantName3.text(data.restaurants[3].restaurant.name)
+      restaurantEstab3.text(data.restaurants[3].restaurant.establishment)
+      restaurantCuisine3.text(data.restaurants[3].restaurant.cuisines)
+      restaurantRating3.text(data.restaurants[3].restaurant.user_rating.aggregate_rating)
+      restaurantURL3.text(data.restaurants[3].restaurant.url)
+      restaurantPhone3.text(data.restaurants[3].restaurant.phone_numbers)
+      restaurantAddress3.text(data.restaurants[3].restaurant.location.address)
+      restaurantHours3.text(data.restaurants[3].restaurant.timings)
+
+      $("#restFourBox").append(restaurantName3)
+      $("#restFourBox").append("Establishment Type: ", restaurantEstab3)
+      $("#restFourBox").append("Cuisine Type: ", restaurantCuisine3)
+      $("#restFourBox").append("Rating: ", restaurantRating3)
+      $("#restFourBox").append("Website: ", restaurantURL3)
+      $("#restFourBox").append("Phone Number: ", restaurantPhone3)
+      $("#restFourBox").append("Address: ", restaurantAddress3)
+      $("#restFourBox").append("Hours of Operation: ", restaurantHours3)
+
+    });
 
 
   };
 
-//events function start
+  //events function start
   var page = 0;
+  var localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+  var eventCity = localStorageCityInfo.name;
+  // var fileName = location.href.split("/").slice(-1); 
+  //document.currentURL
+  console.log(window.location.href.split("/").slice(-1)[0]);
+  if (window.location.href.split("/").slice(-1)[0] === "events.html") {
+    getEvents(page);
+    console.log("currently on events page");
+  }
 
   function getEvents(page) {
+    // let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+    // let eventCity = parseCityInfo.name;
     $('#events-panel').show();
     $('#attraction-panel').hide();
 
@@ -1090,10 +1108,10 @@ $(document).ready(function () {
         page = 0;
       }
     }
-
+    console.log();
     $.ajax({
       type: "GET",
-      url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=" + searchInput + "&size=4&page=" + page,
+      url: "https://app.ticketmaster.com/discovery/v2/events.json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=" + eventCity + "&size=4&page=" + page,
       async: true,
       dataType: "json",
       success: function (json) {
@@ -1144,7 +1162,7 @@ $(document).ready(function () {
   function getAttraction(id) {
     $.ajax({
       type: "GET",
-      url: "https://app.ticketmaster.com/discovery/v2/attractions/" + id + ".json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=" + searchInput,
+      url: "https://app.ticketmaster.com/discovery/v2/attractions/" + id + ".json?apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&sort=date,asc&city=" + eventCity,
       async: true,
       dataType: "json",
       success: function (json) {
@@ -1169,7 +1187,7 @@ $(document).ready(function () {
     $('#classification').text(json.classifications[0].segment.name + " - " + json.classifications[0].genre.name + " - " + json.classifications[0].subGenre.name);
   }
 
- 
+
 
 
 
@@ -1274,6 +1292,7 @@ $("#weather-button").on("click", function (event) {
         `Wind Speed: ${response.wind.speed} MPH`
       );
 
+
       // Moment.js
       let foreCast = $("<h2>").text("5-Day Forecast");
 
@@ -1341,6 +1360,8 @@ $("#weather-button").on("click", function (event) {
 
       let forecastWeather1 = $("<p>").text(response.list[3].weather[0].main);
 
+      let icon1 = $("<p>").text(response.list[3].weather[0].icon);
+
       // Day 2
       let forecastMaxTemp2 = $("<p>").text(
         "High: " +
@@ -1367,6 +1388,8 @@ $("#weather-button").on("click", function (event) {
       );
 
       let forecastWeather2 = $("<p>").text(response.list[11].weather[0].main);
+
+      let icon2 = $("<p>").text(response.list[11].weather[0].icon);
 
       // Day 3
       let forecastMaxTemp3 = $("<p>").text(
@@ -1395,6 +1418,8 @@ $("#weather-button").on("click", function (event) {
 
       let forecastWeather3 = $("<p>").text(response.list[19].weather[0].main);
 
+      let icon3 = $("<p>").text(response.list[19].weather[0].icon);
+
       // Day 4
       let forecastMaxTemp4 = $("<p>").text(
         "High: " +
@@ -1421,6 +1446,8 @@ $("#weather-button").on("click", function (event) {
       );
 
       let forecastWeather4 = $("<p>").text(response.list[27].weather[0].main);
+
+      let icon4 = $("<p>").text(response.list[27].weather[0].icon);
 
       // Day 5
       let forecastMaxTemp5 = $("<p>").text(
@@ -1449,32 +1476,39 @@ $("#weather-button").on("click", function (event) {
 
       let forecastWeather5 = $("<p>").text(response.list[35].weather[0].main);
 
+      let icon5 = $("<p>").text(response.list[35].weather[0].icon);
+
       const forecastObj = {
         dayOneMax: forecastMaxTemp1,
         dayOneMin: forecastMinTemp1,
         dayOneHumidity: forecastHumidity1,
         dayOneWind: forecastWind1,
         dayOneWeather: forecastWeather1,
+        // dayOneIcon: icon1,
         dayTwoMax: forecastMaxTemp2,
         dayTwoMin: forecastMinTemp2,
         dayTwoHumidity: forecastHumidity2,
         dayTwoWind: forecastWind2,
         dayTwoWeather: forecastWeather2,
+        // dayTwoIcon: icon2,
         dayThreeMax: forecastMaxTemp3,
         dayThreeMin: forecastMinTemp3,
         dayThreeHumidity: forecastHumidity3,
         dayThreeWind: forecastWind3,
         dayThreeWeather: forecastWeather3,
+        // dayThreeIcon: icon3,
         dayFourMax: forecastMaxTemp4,
         dayFourMin: forecastMinTemp4,
         dayFourHumidity: forecastHumidity4,
         dayFourWind: forecastWind4,
         dayFourWeather: forecastWeather4,
+        // dayFourIcon: icon4,
         dayFiveMax: forecastMaxTemp5,
         dayFiveMin: forecastMinTemp5,
         dayFiveHumidity: forecastHumidity5,
         dayFiveWind: forecastWind5,
         dayFiveWeather: forecastWeather5,
+        // dayFiveIcon: icon5,
       };
 
       clear(Object.keys(forecastObj));
