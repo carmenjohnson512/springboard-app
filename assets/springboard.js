@@ -867,7 +867,6 @@ $(document).ready(function () {
 
   $(".search-button").on("click", function currentCity() {
     event.preventDefault();
-    getEvents(page);
     searchInput = $(".search-input").val();
 
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
@@ -905,6 +904,7 @@ $(document).ready(function () {
       localStorage.setItem('cityInfo', strCityInfo)
 
       restaurantRecs(cityID);
+      getEvents(page);
     }).catch(function (err) {
       console.log("ERR FOR AJAX CALL", err)
     })
@@ -1078,7 +1078,6 @@ $(document).ready(function () {
   var page = 0;
 
   function getEvents(page) {
-
     $('#events-panel').show();
     $('#attraction-panel').hide();
 
