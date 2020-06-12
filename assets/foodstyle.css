@@ -62,8 +62,10 @@
 .box {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
-  max-height: fit-content;
+  max-width: 200px;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-wrap: normal;
 }
 
 /* Logo (Top Left) */
