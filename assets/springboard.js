@@ -845,8 +845,9 @@ $(document).ready(function () {
   var cuisineSelected = '';
   var cuisineID;
   let searchInput = " ";
+  
 
-  let queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=1%2C151%2C3%2C193&sort=rating&order=desc";
+  
   const APIKey = "cd932dfc82bc08b58c79cefff1fc925a";
   const APIKey2 = "1092a507c481907491fcd43ea457fbd9";
 
@@ -877,6 +878,7 @@ $(document).ready(function () {
    } */
     //we also need to check differences 
     getEvents(page);
+    getWeather(weatherCity);
 
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
     console.log(citiesURL);
@@ -941,6 +943,7 @@ $(document).ready(function () {
     $(".box").empty();
 
     let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
+   
     restaurantRecs(parseCityInfo.cityId)
 
   })
@@ -1085,6 +1088,7 @@ $(document).ready(function () {
   //events function start
   var page = 0;
   var localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+  console.log(localStorageCityInfo)
   var eventCity = localStorageCityInfo.name;
   // var fileName = location.href.split("/").slice(-1); 
   //document.currentURL
@@ -1225,41 +1229,63 @@ $(document).ready(function () {
   // This time, we do not end up here!
   /*     },
     }); */
-});
 
-// Weather API
 
-function clear(ids) {
-  for (const id of ids) {
-    $("#" + id).empty();
+  // Weather API
+
+
+
+
+  
+  var weatherCity = localStorageCityInfo.name;
+  // var fileName = location.href.split("/").slice(-1); 
+  //document.currentURL
+  console.log(window.location.href.split("/").slice(-1)[0]);
+  if (window.location.href.split("/").slice(-1)[0] === "weather.html") {
+    $("#cityTitle").text("Welcome to " + weatherCity)
+    getWeather(weatherCity);
+    //console.log("currently on events page");
   }
-}
 
-function writeHTML(obj, method) {
-  for (const id in obj) {
-    $("#" + id)[method](obj[id]);
+  function clear(ids) {
+    for (const id of ids) {
+      $("#" + id).empty();
+    }
   }
-}
 
-// Call the API
-$("#weather-button").on("click", function (event) {
-  event.preventDefault();
+  function writeHTML(obj, method) {
+    for (const id in obj) {
+      $("#" + id)[method](obj[id]);
+    }
+  }
+
+
+  // Call the API
+  // $("#sBar").on("click", function () {
+  //console.log("here")
+  //event.preventDefault();
 
   // Declare a variable for any city inserted into the search bar
-  let city = $("#weather-input").val();
+  
+  //let city = $("#weather-input").val();
 
   // Save recent searches to local storage
-  localStorage.setItem("savedCity", JSON.stringify(city));
+  //localStorage.setItem("savedCity", JSON.stringify(city));
 
   // Grab city from local storage
-  let recentCity = $("<p>").text(JSON.parse(localStorage.getItem("savedCity")));
+  //let recentCity = $("<p>").text(JSON.parse(localStorage.getItem("savedCity")));
 
   // Append the most recent searched city into Recent Container in HTML
-  $("#cityOne").append(recentCity);
+  //$("#cityTitle").text(city);
 
   // OpenWeather API URL & API Key
-  let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=def8b41b43fe3f2e5dff96db885a6932`;
+  
+  
 
+ 
+
+function getWeather(){
+  let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${weatherCity}&appid=def8b41b43fe3f2e5dff96db885a6932`;
   // AJAX Call for the API
   $.ajax({
     url: queryURL,
@@ -1329,7 +1355,7 @@ $("#weather-button").on("click", function (event) {
     });
 
   // OpenWeather 5-Day Forecast API URL & API Key
-  let queryURL2 = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=def8b41b43fe3f2e5dff96db885a6932`;
+  let queryURL2 = `https://api.openweathermap.org/data/2.5/forecast?q=${weatherCity}&appid=def8b41b43fe3f2e5dff96db885a6932`;
 
   // AJAX call for the API
   $.ajax({
@@ -1519,4 +1545,6 @@ $("#weather-button").on("click", function (event) {
     .catch(function (err) {
       console.log(err);
     });
+}
+
 });
