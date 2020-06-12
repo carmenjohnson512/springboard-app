@@ -845,43 +845,28 @@ $(document).ready(function () {
   var cuisineSelected = '';
   var cuisineID;
   let searchInput = " ";
-  
+  var cityInfo = " ";
 
-  
   const APIKey = "cd932dfc82bc08b58c79cefff1fc925a";
   const APIKey2 = "1092a507c481907491fcd43ea457fbd9";
-
-  //   $.ajax({
-  //     dataType: "json",
-  //     url: queryURL,
-  //     method: "GET",
-  //     crossDomain: true,
-  //     async: true,
-  //     headers: {
-  //       "user-key": APIKey
-  //     }
-  //   }).then(function (data) {
-  //     console.log(data)
-  //   });
 
   //function to take city name input and populate city name & city-based restaurant and event recommendations 
 
   $(".search-button").on("click", function currentCity() {
     event.preventDefault();
     console.log(event);
-    searchInput = event.target.parentElement.parentElement.children[0].children[0].value;
     console.log(searchInput);
+    searchInput = event.target.parentElement.parentElement.children[0].children[0].value;
     // if ($(".search-input")[0].value === '') {
-    /*  searchInput = (".search-input")[1].value; event.target.parentElement.parentElement.children[0].children[0].value;
+    /*  searchInput = $(".search-input")[1].value; event.target.parentElement.parentElement.children[0].children[0].value;
    } else {
-     searchInput = (".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
+     searchInput = $(".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
    } */
     //we also need to check differences 
     getEvents(page);
     getWeather(weatherCity);
 
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
-    console.log(citiesURL);
 
     // let corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
 
@@ -906,20 +891,22 @@ $(document).ready(function () {
       $("#cityTitle").text("Welcome to " + cityName);
       //   console.log("is city name working?", cityName)
 
-      let cityInfo = {
-        name: cityName,
-        cityId: cityID
-
+        cityInfo = {
+            name: cityName,
+            cityId: cityID
       }
+      
       let strCityInfo = JSON.stringify(cityInfo);
       localStorage.setItem('cityInfo', strCityInfo)
 
       restaurantRecs(cityID);
+      getEvents(page);
     }).catch(function (err) {
       console.log("ERR FOR AJAX CALL", err)
     })
   });
 
+  //RESTAURANT PAGE
   //function to populate cuisine dropdown
   for (let i = 0; i < cuisineOptions.cuisines.length; i++) {
     console.log("looping?")
@@ -929,6 +916,17 @@ $(document).ready(function () {
     $(".dropdown-content").append(dropdownItem);
     // console.log("appending cuisines?")
   };
+
+//   let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
+//   restaurantRecs(parseCityInfo.cityId)
+
+  if (window.location.href.split("/").slice(-1)[0] === "restaurants.html") {
+    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
+    restaurantRecs(parseCityInfo.cityId)
+
+    $("#cityTitle").text("Welcome to " + parseCityInfo.name);
+    console.log("currently on restaurants page");
+  }
 
   // on click funciton to add is-active class to dropdown to show cuisine options
   $('#cuisineDropdown').on('click', function () {
@@ -942,8 +940,7 @@ $(document).ready(function () {
     $('.dropdown').removeClass('is-active');
     $(".box").empty();
 
-    let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
-   
+    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
     restaurantRecs(parseCityInfo.cityId)
 
   })
@@ -1094,6 +1091,7 @@ $(document).ready(function () {
   //document.currentURL
   console.log(window.location.href.split("/").slice(-1)[0]);
   if (window.location.href.split("/").slice(-1)[0] === "events.html") {
+    $("#cityTitle").text("Welcome to " + eventCity);
     getEvents(page);
     console.log("currently on events page");
   }
