@@ -28,6 +28,24 @@
   padding-top: 10px;
 }
 
+.dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.dropdown.is-active {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  /* width: 300px;
+  height: 200px; */
+  display: inline-block;
+  position: auto;
+  overflow-y: scroll;
+}
+
 .dropdown-item {
   cursor: pointer !important;
 }
@@ -82,6 +100,11 @@
 
 #navBarSearch {
   width: 7rem;
+}
+
+.menu{
+  overflow-y: scroll;
+  max-height: 100px;
 }
 
 

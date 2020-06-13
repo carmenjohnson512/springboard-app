@@ -1,3 +1,10 @@
+body{
+  background-image: url("homepage.jpg");
+  background-size: cover;
+  
+}
+
+
 .title {
   align-items: center;
   text-align: center;

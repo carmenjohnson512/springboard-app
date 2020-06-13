@@ -1,11 +1,17 @@
+body{
+  background-image: url("Events.jpg");
+  background-size: cover;
+  
+}
+
 .section {
   display: inline;
   align-content: center;
 }
 
-/*.title {
+.title {
+  color: white;
   text-align: center;
-  margin-top: -40px;
 }
 
 .city {
