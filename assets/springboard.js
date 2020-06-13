@@ -852,28 +852,28 @@ $(document).ready(function () {
 
 
   //function to take city name input and populate city name & city-based restaurant and event recommendations 
-
+  // getWeather(weatherCity);
   $(".search-button").on("click", function currentCity() {
     event.preventDefault();
     console.log(event);   
     console.log(searchInput);
-    searchInput = event.target.parentElement.parentElement.children[0].children[0].value;
+    // searchInput = event.target.parentElement.parentElement.children[0].children[0].value;
     
-    // if ($(".search-input")[0].value === '') {
-    /*  searchInput = (".search-input")[1].value; event.target.parentElement.parentElement.children[0].children[0].value;
+    if ($(".search-input")[0].value === '') {
+      searchInput = $(".search-input")[1].value; event.target.parentElement.parentElement.children[0].children[0].value;
    } else {
-     searchInput = (".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
-   } */
-    //we also need to check differences 
+     searchInput = $(".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
+   } 
     
-    getEvents(page);
-
+    // getEvents(page);
+    // getWeather(recentCity);
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
     console.log(citiesURL);
 
-    // let corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
-
     console.log("this is what we typed", searchInput);
+    getEvents(page);
+    getWeather(weatherCity);
+
     $.ajax({
       dataType: "json",
       url: citiesURL,
@@ -903,6 +903,7 @@ $(document).ready(function () {
       localStorage.setItem('cityInfo', strCityInfo)
 
       restaurantRecs(cityID);
+     
     }).catch(function (err) {
       console.log("ERR FOR AJAX CALL", err)
     })
@@ -1096,21 +1097,24 @@ $(document).ready(function () {
 
   //events function start
   var page = 0;
-  var localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+  var localStorageCityInfo = " ";
   console.log(localStorageCityInfo);
 
-  var eventCity = localStorageCityInfo.name;
+  // var eventCity = localStorageCityInfo.name;
   // var fileName = location.href.split("/").slice(-1); 
   //document.currentURL
   console.log(window.location.href.split("/").slice(-1)[0]);
   if (window.location.href.split("/").slice(-1)[0] === "events.html") {
+    localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+    var eventCity = localStorageCityInfo.name;
+    $("#cityTitle").text("Welcome to " + eventCity);
     getEvents(page);
     console.log("currently on events page");
   }
 
   function getEvents(page) {
-    // let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
-    // let eventCity = parseCityInfo.name;
+    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+    var eventCity = parseCityInfo.name;
     $('#events-panel').show();
     $('#attraction-panel').hide();
 
@@ -1203,54 +1207,19 @@ $(document).ready(function () {
   }
 
 
-
-
-
-
-    /*function modal(){
-     //Check if local storage has any city stored
-     let x = localStorage.getitem(city,value)
-     if (x === null){
-       set modal to display block
-       modal.style.display = "block"
-     } 
-     else {
-       set modal to display none
-       variable city accross all pages is set to x
-     }
-  }//End of function
-  */
-
-
-
-
-  // $.ajax({
-  // type: "GET",
-  // url:
-  // "https://app.ticketmaster.com/discovery/v2/events.json?size=20&apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&city=Austin&countryCode=US",
-  // async: true,
-  // dataType: "json",
-  // success: function (json) {
-  // console.log(json);
-  // Parse the response.
-  // Do other things.
-  // },
-  // error: function (xhr, status, err) {
-  // This time, we do not end up here!
-  /*     },
-    }); */
-});
-
   // Weather API
 
-  var weatherCity = localStorageCityInfo.name;
-  var pig = weatherCity;
-  var pigArray = pig.split(",");
-  console.log("Testing pig Aray", pigArray[0]);
+  var weatherCity = " ";
+  // console.log("weather city?", weatherCity)
+  let pig = "";
+  let pigArray = "";
+  // console.log("Testing pig Aray", pigArray[0]);
   // var fileName = location.href.split("/").slice(-1); 
   //document.currentURL
   console.log(window.location.href.split("/").slice(-1)[0]);
   if (window.location.href.split("/").slice(-1)[0] === "weather.html") {
+    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+    weatherCity = parseCityInfo.name;
     $("#cityTitle").text("Welcome to " + weatherCity)
     //console.log(weatherCity)
     getWeather(weatherCity);
@@ -1262,7 +1231,7 @@ $(document).ready(function () {
       $("#" + id).empty();
     }
   }
-}
+
 
 function writeHTML(obj, method) {
   for (const id in obj) {
@@ -1270,26 +1239,12 @@ function writeHTML(obj, method) {
   }
 }
 
-// Call the API
-$("#weather-button").on("click", function (event) {
-  event.preventDefault();
-
-  // Declare a variable for any city inserted into the search bar
-  let city = $("#weather-input").val();
-
-  // Save recent searches to local storage
-  localStorage.setItem("savedCity", JSON.stringify(city));
-
-  // Grab city from local storage
-  let recentCity = $("<p>").text(JSON.parse(localStorage.getItem("savedCity")));
-
-  // Append the most recent searched city into Recent Container in HTML
-  $("#cityOne").append(recentCity);
-
-  // OpenWeather API URL & API Key
-  let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=def8b41b43fe3f2e5dff96db885a6932`;
-
 function getWeather(){
+  var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+  weatherCity = parseCityInfo.name;
+  pig = weatherCity;
+  pigArray = pig.split(",");
+
   let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${pigArray[0]}&appid=def8b41b43fe3f2e5dff96db885a6932`;
 
   // AJAX Call for the API

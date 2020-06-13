@@ -1,11 +1,11 @@
 body{
   background-image: url("homepage.jpg");
   background-size: cover;
-  
 }
 
 
 .title {
+  color: white;
   align-items: center;
   text-align: center;
 }
