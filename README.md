@@ -61,6 +61,3 @@
 3. Expanded restaurant options populated in the app.
 4. Dark Mode
 
-## Preview
-
-![image](https://user-images.githubusercontent.com/60044459/83213650-495fcb80-a128-11ea-96ba-eeeb4eaab472.png)
