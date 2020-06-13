@@ -934,6 +934,8 @@ $(document).ready(function () {
   // on click funciton to add is-active class to dropdown to show cuisine options
   $('#cuisineDropdown').on('click', function () {
     $('.dropdown').addClass('is-active');
+    $('.dropdown-menu').addClass('menu-active');
+
   })
 
   // onclick function to add select (pointer) functionality to cuisine choice & collapse dropdown
@@ -941,6 +943,7 @@ $(document).ready(function () {
     $("#cuisine-choice").text($(this).text())
     cuisineSelected = $(this).text()
     $('.dropdown').removeClass('is-active');
+    $('.dropdown-menu').removeClass('menu-active');
     $(".box").empty();
 
     let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
@@ -1080,6 +1083,12 @@ $(document).ready(function () {
       $("#restFourBox").append("Address: ", restaurantAddress3)
       $("#restFourBox").append("Hours of Operation: ", restaurantHours3)
 
+      // This will be v2 code to show more restaurant options
+      // $("#restaurantOptions").on("click", function showMoreRestaurants(data){
+      //   for(let i = 0; i < data.restaurants.length; i++) {
+      //     console.log("looping data?", showMoreRestaurants(data))
+      //   };
+      // });
     });
 
 
