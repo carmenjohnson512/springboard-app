@@ -845,11 +845,10 @@ $(document).ready(function () {
   var cuisineSelected = '';
   var cuisineID;
   let searchInput = " ";
-  var cityInfo = " ";
 
+  let queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=278&entity_type=city&start=0&count=100&cuisines=1%2C151%2C3%2C193&sort=rating&order=desc";
   const APIKey = "cd932dfc82bc08b58c79cefff1fc925a";
   const APIKey2 = "1092a507c481907491fcd43ea457fbd9";
-
 
 
   //function to take city name input and populate city name & city-based restaurant and event recommendations 
@@ -861,16 +860,16 @@ $(document).ready(function () {
     searchInput = event.target.parentElement.parentElement.children[0].children[0].value;
     
     // if ($(".search-input")[0].value === '') {
-    /*  searchInput = $(".search-input")[1].value; event.target.parentElement.parentElement.children[0].children[0].value;
+    /*  searchInput = (".search-input")[1].value; event.target.parentElement.parentElement.children[0].children[0].value;
    } else {
-     searchInput = $(".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
+     searchInput = (".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
    } */
     //we also need to check differences 
     
     getEvents(page);
-    getWeather(weatherCity);
 
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
+    console.log(citiesURL);
 
     // let corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
 
@@ -895,23 +894,21 @@ $(document).ready(function () {
       $("#cityTitle").text("Welcome to " + cityName);
       //   console.log("is city name working?", cityName)
 
-        cityInfo = {
-            name: cityName,
-            cityId: cityID
+      let cityInfo = {
+        name: cityName,
+        cityId: cityID
+
       }
-      
       let strCityInfo = JSON.stringify(cityInfo);
       localStorage.setItem('cityInfo', strCityInfo)
 
       restaurantRecs(cityID);
-      getEvents(page);
     }).catch(function (err) {
       console.log("ERR FOR AJAX CALL", err)
     })
 
   });
 
-  //RESTAURANT PAGE
   //function to populate cuisine dropdown
   for (let i = 0; i < cuisineOptions.cuisines.length; i++) {
     console.log("looping?")
@@ -922,11 +919,12 @@ $(document).ready(function () {
     // console.log("appending cuisines?")
   };
 
+
 //   let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
 //   restaurantRecs(parseCityInfo.cityId)
 
   if (window.location.href.split("/").slice(-1)[0] === "restaurants.html") {
-    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo')) || "Austin";
+    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
     restaurantRecs(parseCityInfo.cityId)
 
     $("#cityTitle").text("Welcome to " + parseCityInfo.name);
@@ -945,7 +943,7 @@ $(document).ready(function () {
     $('.dropdown').removeClass('is-active');
     $(".box").empty();
 
-    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
+    let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
     restaurantRecs(parseCityInfo.cityId)
 
   })
@@ -1091,12 +1089,12 @@ $(document).ready(function () {
   var page = 0;
   var localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
   console.log(localStorageCityInfo);
+
   var eventCity = localStorageCityInfo.name;
   // var fileName = location.href.split("/").slice(-1); 
   //document.currentURL
   console.log(window.location.href.split("/").slice(-1)[0]);
   if (window.location.href.split("/").slice(-1)[0] === "events.html") {
-    $("#cityTitle").text("Welcome to " + eventCity);
     getEvents(page);
     console.log("currently on events page");
   }
@@ -1232,14 +1230,10 @@ $(document).ready(function () {
   // This time, we do not end up here!
   /*     },
     }); */
-
+});
 
   // Weather API
 
-
-
-
-  
   var weatherCity = localStorageCityInfo.name;
   var pig = weatherCity;
   var pigArray = pig.split(",");
@@ -1259,40 +1253,36 @@ $(document).ready(function () {
       $("#" + id).empty();
     }
   }
+}
 
-  function writeHTML(obj, method) {
-    for (const id in obj) {
-      $("#" + id)[method](obj[id]);
-    }
+function writeHTML(obj, method) {
+  for (const id in obj) {
+    $("#" + id)[method](obj[id]);
   }
+}
 
-
-  // Call the API
-  // $("#sBar").on("click", function () {
-  //console.log("here")
-  //event.preventDefault();
+// Call the API
+$("#weather-button").on("click", function (event) {
+  event.preventDefault();
 
   // Declare a variable for any city inserted into the search bar
-  
-  //let city = $("#weather-input").val();
+  let city = $("#weather-input").val();
 
   // Save recent searches to local storage
-  //localStorage.setItem("savedCity", JSON.stringify(city));
+  localStorage.setItem("savedCity", JSON.stringify(city));
 
   // Grab city from local storage
-  //let recentCity = $("<p>").text(JSON.parse(localStorage.getItem("savedCity")));
+  let recentCity = $("<p>").text(JSON.parse(localStorage.getItem("savedCity")));
 
   // Append the most recent searched city into Recent Container in HTML
-  //$("#cityTitle").text(city);
+  $("#cityOne").append(recentCity);
 
   // OpenWeather API URL & API Key
-  
-  
-
- 
+  let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=def8b41b43fe3f2e5dff96db885a6932`;
 
 function getWeather(){
   let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${pigArray[0]}&appid=def8b41b43fe3f2e5dff96db885a6932`;
+
   // AJAX Call for the API
   $.ajax({
     url: queryURL,
@@ -1325,7 +1315,6 @@ function getWeather(){
       let weatherWind = $("<h4>").text(
         `Wind Speed: ${response.wind.speed} MPH`
       );
-
 
       // Moment.js
       let foreCast = $("<h2>").text("5-Day Forecast");
@@ -1364,7 +1353,6 @@ function getWeather(){
   // OpenWeather 5-Day Forecast API URL & API Key
   let queryURL2 = `https://api.openweathermap.org/data/2.5/forecast?q=${pigArray[0]}&appid=def8b41b43fe3f2e5dff96db885a6932`;
   
-
   // AJAX call for the API
   $.ajax({
     url: queryURL2,
@@ -1395,8 +1383,6 @@ function getWeather(){
 
       let forecastWeather1 = $("<p>").text(response.list[3].weather[0].main);
 
-      let icon1 = $("<p>").text(response.list[3].weather[0].icon);
-
       // Day 2
       let forecastMaxTemp2 = $("<p>").text(
         "High: " +
@@ -1423,8 +1409,6 @@ function getWeather(){
       );
 
       let forecastWeather2 = $("<p>").text(response.list[11].weather[0].main);
-
-      let icon2 = $("<p>").text(response.list[11].weather[0].icon);
 
       // Day 3
       let forecastMaxTemp3 = $("<p>").text(
@@ -1453,8 +1437,6 @@ function getWeather(){
 
       let forecastWeather3 = $("<p>").text(response.list[19].weather[0].main);
 
-      let icon3 = $("<p>").text(response.list[19].weather[0].icon);
-
       // Day 4
       let forecastMaxTemp4 = $("<p>").text(
         "High: " +
@@ -1481,8 +1463,6 @@ function getWeather(){
       );
 
       let forecastWeather4 = $("<p>").text(response.list[27].weather[0].main);
-
-      let icon4 = $("<p>").text(response.list[27].weather[0].icon);
 
       // Day 5
       let forecastMaxTemp5 = $("<p>").text(
@@ -1511,39 +1491,32 @@ function getWeather(){
 
       let forecastWeather5 = $("<p>").text(response.list[35].weather[0].main);
 
-      let icon5 = $("<p>").text(response.list[35].weather[0].icon);
-
       const forecastObj = {
         dayOneMax: forecastMaxTemp1,
         dayOneMin: forecastMinTemp1,
         dayOneHumidity: forecastHumidity1,
         dayOneWind: forecastWind1,
         dayOneWeather: forecastWeather1,
-        // dayOneIcon: icon1,
         dayTwoMax: forecastMaxTemp2,
         dayTwoMin: forecastMinTemp2,
         dayTwoHumidity: forecastHumidity2,
         dayTwoWind: forecastWind2,
         dayTwoWeather: forecastWeather2,
-        // dayTwoIcon: icon2,
         dayThreeMax: forecastMaxTemp3,
         dayThreeMin: forecastMinTemp3,
         dayThreeHumidity: forecastHumidity3,
         dayThreeWind: forecastWind3,
         dayThreeWeather: forecastWeather3,
-        // dayThreeIcon: icon3,
         dayFourMax: forecastMaxTemp4,
         dayFourMin: forecastMinTemp4,
         dayFourHumidity: forecastHumidity4,
         dayFourWind: forecastWind4,
         dayFourWeather: forecastWeather4,
-        // dayFourIcon: icon4,
         dayFiveMax: forecastMaxTemp5,
         dayFiveMin: forecastMinTemp5,
         dayFiveHumidity: forecastHumidity5,
         dayFiveWind: forecastWind5,
         dayFiveWeather: forecastWeather5,
-        // dayFiveIcon: icon5,
       };
 
       clear(Object.keys(forecastObj));
@@ -1554,7 +1527,4 @@ function getWeather(){
       console.log(err);
     });
 }
-
-
-
 });
