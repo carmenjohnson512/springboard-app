@@ -1,4 +1,4 @@
-#### Springboard
+# Springboard
 
 ![Springboard app screenshot](https://github.com/carmenjohnson512/springboard-app/blob/master/assets/springboard_app_screenshot.jpg?raw=true)
 
@@ -33,38 +33,33 @@
 - Javascript/JQuery
 - AJAX
 - Bulma
+- Bootstrap
 - Moment.js
 
 2. APIs
 
-- AccuWeather
-- Yelp
-- Eventbrite or Ticketmaster
+- OpenWeatherMap
+- Zomato
+- Ticketmaster
 
 ## User Story
 
 - As a traveler, I want to be able to look up local activities in a new city, so that I can plan my vacations more smoothly.
-- Given that I am a traveler looking for local activities in a new city, WHEN I input my location, THEN I am presented with a list of local restaraunts and local activites accompanied with reviews.
+- Given that I am a traveler looking for local activities in a new city, WHEN I input my location, THEN I am presented with a list of local restaraunts and local activites.
 
-## Wireframe
-
-- Coming Soon
 
 ## Features
 
 - [x] Mobile Responsive
 - [x] Instant Access to weather forecasts, local restaurants, and events
-- [x] Geo-Location
 - [x] All searches locally stored
 
 ## Future Development
 
 1. Uber Ride Requests and UberEats straight from the App
 2. App will operate on an international scale.
-
-- Includes foreign exchange rates.
-
-3. Dark Mode
+3. Expanded restaurant options populated in the app.
+4. Dark Mode
 
 ## Preview
 
