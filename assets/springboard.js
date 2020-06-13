@@ -856,6 +856,7 @@ $(document).ready(function () {
 
   $(".search-button").on("click", function currentCity() {
     event.preventDefault();
+    
     console.log(event);   
     console.log(searchInput);
     searchInput = event.target.parentElement.parentElement.children[0].children[0].value;
@@ -867,14 +868,18 @@ $(document).ready(function () {
    } */
     //we also need to check differences 
     
-    getEvents(page);
-    getWeather(weatherCity);
+    
 
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
 
     // let corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
 
     console.log("this is what we typed", searchInput);
+    getEvents(page);
+    getWeather(weatherCity);
+
+    
+
     $.ajax({
       dataType: "json",
       url: citiesURL,
@@ -909,8 +914,10 @@ $(document).ready(function () {
       console.log("ERR FOR AJAX CALL", err)
     })
 
-  });
+    
 
+  });
+    
   //RESTAURANT PAGE
   //function to populate cuisine dropdown
   for (let i = 0; i < cuisineOptions.cuisines.length; i++) {
@@ -926,7 +933,7 @@ $(document).ready(function () {
 //   restaurantRecs(parseCityInfo.cityId)
 
   if (window.location.href.split("/").slice(-1)[0] === "restaurants.html") {
-    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo')) || "Austin";
+    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
     restaurantRecs(parseCityInfo.cityId)
 
     $("#cityTitle").text("Welcome to " + parseCityInfo.name);
@@ -1196,49 +1203,7 @@ $(document).ready(function () {
   }
 
 
-
-
-
-
-    /*function modal(){
-     //Check if local storage has any city stored
-     let x = localStorage.getitem(city,value)
-     if (x === null){
-       set modal to display block
-       modal.style.display = "block"
-     } 
-     else {
-       set modal to display none
-       variable city accross all pages is set to x
-     }
-  }//End of function
-  */
-
-
-
-
-  // $.ajax({
-  // type: "GET",
-  // url:
-  // "https://app.ticketmaster.com/discovery/v2/events.json?size=20&apikey=Zm5ycfcSybGtmXIn4dDXF1fCqr8xTo2A&locale=*&city=Austin&countryCode=US",
-  // async: true,
-  // dataType: "json",
-  // success: function (json) {
-  // console.log(json);
-  // Parse the response.
-  // Do other things.
-  // },
-  // error: function (xhr, status, err) {
-  // This time, we do not end up here!
-  /*     },
-    }); */
-
-
   // Weather API
-
-
-
-
   
   var weatherCity = localStorageCityInfo.name;
   var pig = weatherCity;
@@ -1553,6 +1518,7 @@ function getWeather(){
     .catch(function (err) {
       console.log(err);
     });
+    
 }
 
 
