@@ -850,19 +850,23 @@ $(document).ready(function () {
   const APIKey = "cd932dfc82bc08b58c79cefff1fc925a";
   const APIKey2 = "1092a507c481907491fcd43ea457fbd9";
 
+
+
   //function to take city name input and populate city name & city-based restaurant and event recommendations 
 
   $(".search-button").on("click", function currentCity() {
     event.preventDefault();
-    console.log(event);
+    console.log(event);   
     console.log(searchInput);
     searchInput = event.target.parentElement.parentElement.children[0].children[0].value;
+    
     // if ($(".search-input")[0].value === '') {
     /*  searchInput = $(".search-input")[1].value; event.target.parentElement.parentElement.children[0].children[0].value;
    } else {
      searchInput = $(".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
    } */
     //we also need to check differences 
+    
     getEvents(page);
     getWeather(weatherCity);
 
@@ -904,6 +908,7 @@ $(document).ready(function () {
     }).catch(function (err) {
       console.log("ERR FOR AJAX CALL", err)
     })
+
   });
 
   //RESTAURANT PAGE
@@ -921,7 +926,7 @@ $(document).ready(function () {
 //   restaurantRecs(parseCityInfo.cityId)
 
   if (window.location.href.split("/").slice(-1)[0] === "restaurants.html") {
-    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
+    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo')) || "Austin";
     restaurantRecs(parseCityInfo.cityId)
 
     $("#cityTitle").text("Welcome to " + parseCityInfo.name);
@@ -1085,7 +1090,7 @@ $(document).ready(function () {
   //events function start
   var page = 0;
   var localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
-  console.log(localStorageCityInfo)
+  console.log(localStorageCityInfo);
   var eventCity = localStorageCityInfo.name;
   // var fileName = location.href.split("/").slice(-1); 
   //document.currentURL
@@ -1195,8 +1200,7 @@ $(document).ready(function () {
 
 
 
-  //Just brainstorming here. Up to the JS team to review it
-  /* function getCity(){
+    /*function modal(){
      //Check if local storage has any city stored
      let x = localStorage.getitem(city,value)
      if (x === null){
@@ -1208,6 +1212,7 @@ $(document).ready(function () {
        variable city accross all pages is set to x
      }
   }//End of function
+  */
 
 
 
@@ -1236,11 +1241,15 @@ $(document).ready(function () {
 
   
   var weatherCity = localStorageCityInfo.name;
+  var pig = weatherCity;
+  var pigArray = pig.split(",");
+  console.log("Testing pig Aray", pigArray[0]);
   // var fileName = location.href.split("/").slice(-1); 
   //document.currentURL
   console.log(window.location.href.split("/").slice(-1)[0]);
   if (window.location.href.split("/").slice(-1)[0] === "weather.html") {
     $("#cityTitle").text("Welcome to " + weatherCity)
+    //console.log(weatherCity)
     getWeather(weatherCity);
     //console.log("currently on events page");
   }
@@ -1283,7 +1292,7 @@ $(document).ready(function () {
  
 
 function getWeather(){
-  let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${weatherCity}&appid=def8b41b43fe3f2e5dff96db885a6932`;
+  let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${pigArray[0]}&appid=def8b41b43fe3f2e5dff96db885a6932`;
   // AJAX Call for the API
   $.ajax({
     url: queryURL,
@@ -1353,7 +1362,8 @@ function getWeather(){
     });
 
   // OpenWeather 5-Day Forecast API URL & API Key
-  let queryURL2 = `https://api.openweathermap.org/data/2.5/forecast?q=${weatherCity}&appid=def8b41b43fe3f2e5dff96db885a6932`;
+  let queryURL2 = `https://api.openweathermap.org/data/2.5/forecast?q=${pigArray[0]}&appid=def8b41b43fe3f2e5dff96db885a6932`;
+  
 
   // AJAX call for the API
   $.ajax({
@@ -1544,5 +1554,7 @@ function getWeather(){
       console.log(err);
     });
 }
+
+
 
 });
