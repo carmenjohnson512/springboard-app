@@ -1,4 +1,6 @@
-# Springboard
+#### Springboard
+
+![Springboard app screenshot](https://github.com/carmenjohnson512/springboard-app/blob/master/assets/springboard_app_screenshot.jpg?raw=true)
 
 ## Contributors
 
@@ -66,4 +68,4 @@
 
 ## Preview
 
-- Coming Very, Very Soon
+![image](https://user-images.githubusercontent.com/60044459/83213650-495fcb80-a128-11ea-96ba-eeeb4eaab472.png)
