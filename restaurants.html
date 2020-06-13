@@ -10,11 +10,11 @@
     ></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/db5e26bbb4.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/foodstyle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+      <link rel="stylesheet" href="./assets/foodstyle.css" />
   </head>
   <body>
   
@@ -106,32 +106,7 @@
 
       <!--Moved sidebar menu and all the restaurants cards into one div to arrange it on the same line--> 
       <div class ="mid-page">
-        <!----   Sidebar menu with searched restaurants  -->
-        <div class="block-side"> <!--- Samir put this the side next to restaurants (AO)-->
-          <aside class="menu is-two-thirds" id="sideMenu">
-            <p class="menu-label" id="sideOptionOne">
-              Restaurant 1
-            </p>
-            <ul class="menu-list">
-              <li><a href="">Link 1</a></li>
-            </ul>
-            <p class="menu-label" id="sideOptionTwo">
-              Restraurant 2
-            </p>
-            <ul class="menu-list">
-              <li><a href="">Link 2</a></li>
-            </ul>
-            <p class="menu-label" id="sideOptionThree">
-              Restraurant 3
-            </p>
-            <ul class="menu-list">
-              <li><a href="">Link 3</a></li>
-            </ul>
-          </aside>
-        </div>
   
-        
-        
           <!----Here is the container where the restaurants will display------->
         <section class="food_container">
           <!--Each will be manipulated by the DOM-->
@@ -157,15 +132,25 @@
               <div class="box" id="restFourBox">
                 <!--restaurant elements/details will be injected via jquery-->
               </div>
-            </div>
+            </div>     
         </section>
 
+         <!-- v2 - extra restaurant info -->
+         <!-- <section>
+            <div>
+              <button class="menu-label" id="sideOptionOne">See more results</button>
+              <a href="#moreRestOptions" id="restaurantOptions"></a>
+            </div>
+            <div class="moreRestOptions">
+
+            </div>
+        </section> -->
       </div>
 
-      </div>
+      
       <!--Created a container for the Nav items like event images and homepage images// they are set horizontally at the bottom of the page-->
 
-      </div>
+  
       
     </section>
 
