@@ -852,31 +852,31 @@ $(document).ready(function () {
 
 
   //function to take city name input and populate city name & city-based restaurant and event recommendations 
-
+  // getWeather(weatherCity);
   $(".search-button").on("click", function currentCity() {
     event.preventDefault();
 
     console.log(event);
 
     console.log(searchInput);
-    searchInput = event.target.parentElement.parentElement.children[0].children[0].value;
 
+    // searchInput = event.target.parentElement.parentElement.children[0].children[0].value;
+    
     if ($(".search-input")[0].value === '') {
       searchInput = $(".search-input")[1].value; event.target.parentElement.parentElement.children[0].children[0].value;
-    } else {
-      searchInput = $(".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
-    }
-    //we also need to check differences 
+   } else {
+     searchInput = $(".search-input").val(); event.target.parentElement.parentElement.children[0].children[0].value;
+   } 
+    
+    // getEvents(page);
+    // getWeather(recentCity);
+
     let citiesURL = "https://developers.zomato.com/api/v2.1/cities?q=" + searchInput;
     console.log(citiesURL);
-
-    // let corsUrl = 'https://cors-anywhere.herokuapp.com/' + citiesURL
 
     console.log("this is what we typed", searchInput);
     getEvents(page);
     getWeather(weatherCity);
-
-    
 
     $.ajax({
       dataType: "json",
@@ -907,6 +907,7 @@ $(document).ready(function () {
       localStorage.setItem('cityInfo', strCityInfo)
 
       restaurantRecs(cityID);
+     
     }).catch(function (err) {
       console.log("ERR FOR AJAX CALL", err)
     })
@@ -1101,21 +1102,26 @@ $(document).ready(function () {
 
   //events function start
   var page = 0;
-  var localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+  var localStorageCityInfo = " ";
   console.log(localStorageCityInfo);
 
-  var eventCity = localStorageCityInfo.name;
+  // var eventCity = localStorageCityInfo.name;
   // var fileName = location.href.split("/").slice(-1); 
   //document.currentURL
   console.log(window.location.href.split("/").slice(-1)[0]);
   if (window.location.href.split("/").slice(-1)[0] === "events.html") {
+    localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+    var eventCity = localStorageCityInfo.name;
+    $("#cityTitle").text("Welcome to " + eventCity);
     getEvents(page);
     console.log("currently on events page");
   }
 
   function getEvents(page) {
-    let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
-    let eventCity = parseCityInfo.name;
+
+    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+    var eventCity = parseCityInfo.name;
+
     $('#events-panel').show();
     $('#attraction-panel').hide();
 
@@ -1211,14 +1217,18 @@ $(document).ready(function () {
   // Weather API
 
 
-  var weatherCity = localStorageCityInfo.name;
-  var pig = weatherCity;
-  var pigArray = pig.split(",");
-  console.log("Testing pig Aray", pigArray[0]);
+  var weatherCity = " ";
+  // console.log("weather city?", weatherCity)
+  let pig = "";
+  let pigArray = "";
+  // console.log("Testing pig Aray", pigArray[0]);
+
   // var fileName = location.href.split("/").slice(-1); 
   //document.currentURL
   console.log(window.location.href.split("/").slice(-1)[0]);
   if (window.location.href.split("/").slice(-1)[0] === "weather.html") {
+    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+    weatherCity = parseCityInfo.name;
     $("#cityTitle").text("Welcome to " + weatherCity)
     //console.log(weatherCity)
     getWeather(weatherCity);
@@ -1238,27 +1248,14 @@ $(document).ready(function () {
     }
   }
 
-  // Call the API
-  // $("#weather-button").on("click", function (event) {
-  // event.preventDefault();
 
-  // Declare a variable for any city inserted into the search bar
-  // let city = $("#weather-input").val();
+function getWeather(){
+  var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+  weatherCity = parseCityInfo.name;
+  pig = weatherCity;
+  pigArray = pig.split(",");
 
-  // Save recent searches to local storage
-  // localStorage.setItem("savedCity", JSON.stringify(city));
-
-  // Grab city from local storage
-  // let recentCity = $("<p>").text(JSON.parse(localStorage.getItem("savedCity")));
-
-  // Append the most recent searched city into Recent Container in HTML
-  // $("#cityOne").append(recentCity);
-
-  // OpenWeather API URL & API Key
-  // let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=def8b41b43fe3f2e5dff96db885a6932`;
-
-  function getWeather() {
-    let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${pigArray[0]}&appid=def8b41b43fe3f2e5dff96db885a6932`;
+  let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${pigArray[0]}&appid=def8b41b43fe3f2e5dff96db885a6932`;
 
     // AJAX Call for the API
     $.ajax({
