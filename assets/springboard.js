@@ -929,7 +929,7 @@ $(document).ready(function () {
     $('.dropdown-menu').removeClass('menu-active');
     $(".box").empty();
 
-    let parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
+    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'))
     restaurantRecs(parseCityInfo.cityId)
 
   })
@@ -1084,8 +1084,8 @@ $(document).ready(function () {
 
   function getEvents(page) {
 
-    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
-    var eventCity = parseCityInfo.name;
+    localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+    var eventCity = localStorageCityInfo.name;
 
     $('#events-panel').show();
     $('#attraction-panel').hide();
@@ -1184,8 +1184,8 @@ $(document).ready(function () {
  
   console.log(window.location.href.split("/").slice(-1)[0]);
   if (window.location.href.split("/").slice(-1)[0] === "weather.html") {
-    var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
-    weatherCity = parseCityInfo.name;
+    localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+    weatherCity = localStorageCityInfo.name;
     $("#cityTitle").text("Welcome to " + weatherCity)
 
     getWeather(weatherCity);
@@ -1204,8 +1204,8 @@ $(document).ready(function () {
   }
 
 function getWeather(){
-  var parseCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
-  weatherCity = parseCityInfo.name;
+  localStorageCityInfo = JSON.parse(localStorage.getItem('cityInfo'));
+  weatherCity = localStorageCityInfo.name;
   pig = weatherCity;
   pigArray = pig.split(",");
 
