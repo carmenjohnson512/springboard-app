@@ -102,6 +102,11 @@
   width: 7rem;
 }
 
+.menu{
+  overflow-y: scroll;
+  max-height: 100px;
+}
+
 
 .restName {
   font-weight: bold;

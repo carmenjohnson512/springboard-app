@@ -1,3 +1,14 @@
+body{
+  background-image: url("weather2.jpg");
+  background-size: cover;
+  
+}
+
+.title{
+  color: white;
+  text-align: center;
+}
+
 .section .title {
   text-align: center;
   margin-top: -35px;
@@ -79,7 +90,7 @@ label {
 }
 
 #weather-input {
-  border: 3px solid black;
+  
   margin-left: 5px;
   font-weight: bold;
 }
@@ -88,6 +99,10 @@ label {
   font-weight: bold;
   margin-left: 6px;
   font-size: 35px;
+}
+
+#forecast{
+  color: white;
 }
 
 #fiveDayForecast {
@@ -101,7 +116,7 @@ label {
 #dayThree,
 #dayFour,
 #dayFive {
-  border: 2px solid black;
+  
   background-color: #ff3860;
   border-radius: .5em .5em .5em .5em;
   color: black;
@@ -109,7 +124,7 @@ label {
 }
 
 #todayWeather {
-  border: 2px solid black;
+  
   background-color: #ff3860;
   border-radius: .5em .5em .5em .5em;
   color: black;
