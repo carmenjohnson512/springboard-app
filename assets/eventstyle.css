@@ -69,3 +69,60 @@ body{
   width: 7rem;
 }
 
+@media only screen and (max-width: 1023px) {
+  /* For mobile phones: */
+  
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     
+  } 
+  
+  .navbar-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    max-width: max-content;
+  }
+
+  .navbar-end {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    max-width: 0px;
+  }
+
+  .navbar-item {
+    max-width: 5px;
+  }
+
+  .icon {
+    color: white;
+  }
+
+  .navbar-brand {
+    margin-right: 12rem;
+  }
+
+  .field:not(:last-child) {
+    margin-bottom: 0rem;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+  }
+
+  #springLogo {
+    font-size: 36px;
+    position: inherit;
+    margin-right: 30px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+  }
+}
+

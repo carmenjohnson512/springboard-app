@@ -898,6 +898,16 @@ $(document).ready(function () {
     })
 
   });
+
+  //function for nav menu burger button
+  $(".navbar-burger").on("click", function (event){
+    console.log("clicking?")
+    event.preventDefault();
+    $(".burger-menu").toggleClass("expand")
+    // $(this).attr("aria-expanded", "true");
+    // $(".navbar-items").attr("aria-hidden", "false")
+    $(".navbar-items").toggleClass("expand")
+  })
     
 
   //function to populate cuisine dropdown
