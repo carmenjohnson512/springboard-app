@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   z-index: 1000; 
   position: relative;
  
@@ -75,7 +75,7 @@ body {
   display: flex;
   align-items: start;
   justify-content: space-evenly;
-  margin-left: 65px;
+  margin: 50px;
 }
 
 .nav-container {
@@ -93,9 +93,10 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 200px;
-  max-height: 300px;
-  overflow-y: scroll;
-  overflow-wrap: normal;
+  height: max-content;
+  /* overflow-y: scroll; */
+  overflow-wrap: break-word;
+  font-size: 10px;
 }
 
 /* Logo (Top Left) */
@@ -122,7 +123,7 @@ body {
 
 .restName {
   font-weight: bold;
-  font-size: 22px;
+  font-size: 15px;
   margin-bottom: 10px;
 }
 

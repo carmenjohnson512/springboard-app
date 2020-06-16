@@ -964,7 +964,8 @@ $(document).ready(function () {
       let restaurantEstab = $("<div>").addClass("restEstab");
       let restaurantCuisine = $("<div>").addClass("restCuisine");
       let restaurantRating = $("<div>").addClass("restRating");
-      let restaurantURL = $("<div>").addClass("restURL");
+      // let restaurantURL = $("<div>").addClass("restURL");
+      let restaurantURL = $('<a>').attr({"href":data.restaurants[0].restaurant.url, "target":"_blank"}).addClass("restURL").text('Visit the website');
       let restaurantPhone = $("<div>").addClass("restPhone");
       let restaurantAddress = $("<div>").addClass("restAddress");
       let restaurantHours = $("<div>").addClass("restHours");
@@ -973,7 +974,7 @@ $(document).ready(function () {
       restaurantEstab.text(data.restaurants[0].restaurant.establishment)
       restaurantCuisine.text(data.restaurants[0].restaurant.cuisines)
       restaurantRating.text(data.restaurants[0].restaurant.user_rating.aggregate_rating)
-      restaurantURL.text(data.restaurants[0].restaurant.url)
+      // restaurantURL.text(data.restaurants[0].restaurant.url)
       restaurantPhone.text(data.restaurants[0].restaurant.phone_numbers)
       restaurantAddress.text(data.restaurants[0].restaurant.location.address)
       restaurantHours.text(data.restaurants[0].restaurant.timings)
@@ -982,7 +983,7 @@ $(document).ready(function () {
       $("#restOneBox").append("Establishment Type: ", restaurantEstab)
       $("#restOneBox").append("Cuisine Type: ", restaurantCuisine)
       $("#restOneBox").append("Rating: ", restaurantRating)
-      $("#restOneBox").append("Website: ", restaurantURL)
+      $("#restOneBox").append(restaurantURL)
       $("#restOneBox").append("Phone Number: ", restaurantPhone)
       $("#restOneBox").append("Address: ", restaurantAddress)
       $("#restOneBox").append("Hours of Operation: ", restaurantHours)
@@ -991,7 +992,7 @@ $(document).ready(function () {
       let restaurantEstab1 = $("<div>").addClass("restEstab");
       let restaurantCuisine1 = $("<div>").addClass("restCuisine");
       let restaurantRating1 = $("<div>").addClass("restRating");
-      let restaurantURL1 = $("<div>").addClass("restURL");
+      let restaurantURL1 = $('<a>').attr({"href":data.restaurants[1].restaurant.url, "target":"_blank"}).addClass("restURL").text('Visit the website');
       let restaurantPhone1 = $("<div>").addClass("restPhone");
       let restaurantAddress1 = $("<div>").addClass("restAddress");
       let restaurantHours1 = $("<div>").addClass("restHours");
@@ -1000,7 +1001,7 @@ $(document).ready(function () {
       restaurantEstab1.text(data.restaurants[1].restaurant.establishment)
       restaurantCuisine1.text(data.restaurants[1].restaurant.cuisines)
       restaurantRating1.text(data.restaurants[1].restaurant.user_rating.aggregate_rating)
-      restaurantURL1.text(data.restaurants[1].restaurant.url)
+      // restaurantURL1.text(data.restaurants[1].restaurant.url)
       restaurantPhone1.text(data.restaurants[1].restaurant.phone_numbers)
       restaurantAddress1.text(data.restaurants[1].restaurant.location.address)
       restaurantHours1.text(data.restaurants[1].restaurant.timings)
@@ -1009,7 +1010,7 @@ $(document).ready(function () {
       $("#restTwoBox").append("Establishment Type: ", restaurantEstab1)
       $("#restTwoBox").append("Cuisine Type: ", restaurantCuisine1)
       $("#restTwoBox").append("Rating: ", restaurantRating1)
-      $("#restTwoBox").append("Website: ", restaurantURL1)
+      $("#restTwoBox").append(restaurantURL1)
       $("#restTwoBox").append("Phone Number: ", restaurantPhone1)
       $("#restTwoBox").append("Address: ", restaurantAddress1)
       $("#restTwoBox").append("Hours of Operation: ", restaurantHours1)
@@ -1018,7 +1019,7 @@ $(document).ready(function () {
       let restaurantEstab2 = $("<div>").addClass("restEstab");
       let restaurantCuisine2 = $("<div>").addClass("restCuisine");
       let restaurantRating2 = $("<div>").addClass("restRating");
-      let restaurantURL2 = $("<div>").addClass("restURL");
+      let restaurantURL2 = $('<a>').attr({"href":data.restaurants[2].restaurant.url, "target":"_blank"}).addClass("restURL").text('Visit the website');
       let restaurantPhone2 = $("<div>").addClass("restPhone");
       let restaurantAddress2 = $("<div>").addClass("restAddress");
       let restaurantHours2 = $("<div>").addClass("restHours");
@@ -1027,7 +1028,7 @@ $(document).ready(function () {
       restaurantEstab2.text(data.restaurants[2].restaurant.establishment)
       restaurantCuisine2.text(data.restaurants[2].restaurant.cuisines)
       restaurantRating2.text(data.restaurants[2].restaurant.user_rating.aggregate_rating)
-      restaurantURL2.text(data.restaurants[2].restaurant.url)
+      // restaurantURL2.text(data.restaurants[2].restaurant.url)
       restaurantPhone2.text(data.restaurants[2].restaurant.phone_numbers)
       restaurantAddress2.text(data.restaurants[2].restaurant.location.address)
       restaurantHours2.text(data.restaurants[2].restaurant.timings)
@@ -1036,7 +1037,7 @@ $(document).ready(function () {
       $("#restThreeBox").append("Establishment Type: ", restaurantEstab2)
       $("#restThreeBox").append("Cuisine Type: ", restaurantCuisine2)
       $("#restThreeBox").append("Rating: ", restaurantRating2)
-      $("#restThreeBox").append("Website: ", restaurantURL2)
+      $("#restThreeBox").append(restaurantURL2)
       $("#restThreeBox").append("Phone Number: ", restaurantPhone2)
       $("#restThreeBox").append("Address: ", restaurantAddress2)
       $("#rrestThreeBox").append("Hours of Operation: ", restaurantHours2)
@@ -1045,7 +1046,7 @@ $(document).ready(function () {
       let restaurantEstab3 = $("<div>").addClass("restEstab");
       let restaurantCuisine3 = $("<div>").addClass("restCuisine");
       let restaurantRating3 = $("<div>").addClass("restRating");
-      let restaurantURL3 = $("<div>").addClass("restURL");
+      let restaurantURL3 = $('<a>').attr({"href":data.restaurants[3].restaurant.url, "target":"_blank"}).addClass("restURL").text('Visit the website');
       let restaurantPhone3 = $("<div>").addClass("restPhone");
       let restaurantAddress3 = $("<div>").addClass("restAddress");
       let restaurantHours3 = $("<div>").addClass("restHours");
@@ -1054,7 +1055,7 @@ $(document).ready(function () {
       restaurantEstab3.text(data.restaurants[3].restaurant.establishment)
       restaurantCuisine3.text(data.restaurants[3].restaurant.cuisines)
       restaurantRating3.text(data.restaurants[3].restaurant.user_rating.aggregate_rating)
-      restaurantURL3.text(data.restaurants[3].restaurant.url)
+      // restaurantURL3.text(data.restaurants[3].restaurant.url)
       restaurantPhone3.text(data.restaurants[3].restaurant.phone_numbers)
       restaurantAddress3.text(data.restaurants[3].restaurant.location.address)
       restaurantHours3.text(data.restaurants[3].restaurant.timings)
@@ -1063,7 +1064,7 @@ $(document).ready(function () {
       $("#restFourBox").append("Establishment Type: ", restaurantEstab3)
       $("#restFourBox").append("Cuisine Type: ", restaurantCuisine3)
       $("#restFourBox").append("Rating: ", restaurantRating3)
-      $("#restFourBox").append("Website: ", restaurantURL3)
+      $("#restFourBox").append(restaurantURL3)
       $("#restFourBox").append("Phone Number: ", restaurantPhone3)
       $("#restFourBox").append("Address: ", restaurantAddress3)
       $("#restFourBox").append("Hours of Operation: ", restaurantHours3)
